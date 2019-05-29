@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_link.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/21 16:45:35 by blukasho          #+#    #+#             */
-/*   Updated: 2019/05/21 16:50:40 by blukasho         ###   ########.fr       */
+/*   Created: 2019/01/24 12:03:03 by blukasho          #+#    #+#             */
+/*   Updated: 2019/05/29 11:10:27 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_ls.h"
+#include "ft_printf.h"
 
-int				is_link(char *name)
+int					main_function(const char **format, va_list ap)
 {
-	struct stat	sb;
-
-	if (!lstat(name, &sb) && S_ISLNK(sb.st_mode))
-		return (1);
+	parse_format_specifiers(format);
+	if (check_errors() == -1)
+		return (-1);
+	result_preparation(ap);
 	return (0);
 }

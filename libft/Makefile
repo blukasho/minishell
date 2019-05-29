@@ -6,7 +6,7 @@
 #    By: blukasho <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/31 12:56:17 by blukasho          #+#    #+#              #
-#*   Updated: 2019/05/28 19:09:39 by blukasho         ###   ########.fr       *#
+#*   Updated: 2019/05/29 11:08:22 by blukasho         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,37 +23,54 @@ SRCS = ft_bzero.c ft_memcpy.c ft_memset.c ft_memccpy.c ft_memmove.c \
 	   ft_putendl_fd.c ft_putnbr_fd.c ft_count_words.c ft_lstnew.c\
 	   ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c ft_lstmap.c\
 	   ft_strndup.c ft_get_arr.c ft_is_lower.c ft_is_upper.c ft_is_space.c\
-	   get_next_line.c ft_strlen_chr.c ft_printf.c ft_printf_parser.c\
-	   parse_flags.c result_preparation.c print_char.c print_pointer.c\
-	   print_digits.c print_octal.c additional_functions.c\
-	   print_unsigned_digits.c print_hexdecimal.c print_double.c\
-	   print_percent.c print_string.c main_function.c check_errors.c\
-	   additional_functions_1.c ft_int_arr_mult.c ft_int_arr_subtr.c\
+	   get_next_line.c ft_strlen_chr.c\
+	   ft_int_arr_mult.c ft_int_arr_subtr.c\
 	   ft_sum_two_digits.c ft_pos_exp_of_digit.c ft_neg_exp_of_digit.c\
-	   ft_int_arr_comparing.c ft_print_int_arr.c additional_functions_double.c\
+	   ft_int_arr_comparing.c\
 	   t_sum_two_digits_del.c check_period.c ft_sum.c ft_get_double_bits.c\
-	   ft_get_double_exp.c ft_get_double_man.c convert_double.c round_double.c\
+	   ft_get_double_exp.c ft_get_double_man.c\
 	   ft_print_double_bits.c ft_len_of_digit.c\
 
-vpath %.c . ./ft_printf
+SRCS_FT_PRINTF =  additional_functions.c additional_functions_1.c\
+				  additional_functions_double.c check_errors.c\
+				  convert_double.c ft_printf.c ft_printf_parser.c\
+				  main_function.c parse_flags.c ft_print_int_arr.c\
+				  result_preparation.c print_char.c print_pointer.c\
+				  print_unsigned_digits.c print_hexdecimal.c print_double.c\
+				  print_digits.c print_octal.c round_double.c\
+				  print_percent.c print_string.c\
 
-OBJ = $(SRCS:.c=.o)
+OBJ = $(addprefix $(OBJ_PATH), $(SRCS:.c=.o))
+
+OBJ_FT_PRINTF = $(addprefix $(OBJ_PATH), $(SRCS_FT_PRINTF:.c=.o))
+
+OBJ_PATH = objs/
+
+SRCS_PATH = srcs/
+
+SRCS_PATH_FT_PRINTF = srcs/ft_printf/
 
 FLAGS = -Wall -Wextra -Werror -I includes
 
 LIBFT = libft.a
 
-all: $(LIBFT)
+all: make_objs_path $(LIBFT)
 
-$(LIBFT): $(OBJ)
+make_objs_path:
+	@mkdir -p $(OBJ_PATH)
+
+$(LIBFT): $(OBJ) $(OBJ_FT_PRINTF)
 	ar -rv $(LIBFT) $^
 	ranlib $(LIBFT)
 
-$(OBJ): %.o: %.c
+$(OBJ_PATH)%.o: $(SRCS_PATH_FT_PRINTF)%.c
+	gcc $(FLAGS) -c $< -o $@
+
+$(OBJ_PATH)%.o: $(SRCS_PATH)%.c
 	gcc $(FLAGS) -c $< -o $@
 
 clean: 
-	rm -rf $(OBJ)
+	rm -rf $(OBJ_PATH)
 
 fclean: clean
 	rm -rf $(LIBFT)

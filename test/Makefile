@@ -6,22 +6,43 @@
 #*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2019/05/25 16:29:57 by blukasho          #+#    #+#             *#
-#*   Updated: 2019/05/28 18:18:59 by blukasho         ###   ########.fr       *#
+#*   Updated: 2019/05/29 09:53:57 by blukasho         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
-SRCS = test_read_fd_0.c
+SRCS = test_1.c test_2.c
 
-INCLUDES = ../includes
+OBJ_PATH = objs/
 
-all: make_lib
-	gcc -g3 $(SRCS) ../libft.a -I $(INCLUDES)
+SRCS_PATH = srcs/
 
-make_lib:
-	make make_lib -C ../
+OBJ = $(addprefix $(OBJ_PATH), $(SRCS:.c=.o))
+
+FLAGS = -Wall -Wextra -Werror -I includes
+
+LIBFT = libft.a
+
+all: make_obj_path $(LIBFT)
+
+make_obj_path:
+	@mkdir -p $(OBJ_PATH)
+
+$(LIBFT): $(OBJ)
+	ar -rv $(LIBFT) $^
+	ranlib $(LIBFT)
+
+$(OBJ_PATH)%.o:$(SRCS_PATH)%.c
+	gcc $(FLAGS) -c $< -o $@
 
 clean:
+	rm -rf $(OBJ_PATH)
 	rm -rf a.out
+	rm -rf objs
 	rm -rf a.out.dSYM
 
 fclean: clean
+	rm -rf $(LIBFT)
+
+re: fclean all
+
+.PHONY: all clean fclean re

@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_files.c                                      :+:      :+:    :+:   */
+/*   test_1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/11 12:40:48 by blukasho          #+#    #+#             */
-/*   Updated: 2019/04/11 12:44:43 by blukasho         ###   ########.fr       */
+/*   Created: 2019/05/29 09:30:31 by blukasho          #+#    #+#             */
+/*   Updated: 2019/05/29 09:46:19 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_ls.h"
+#include "test.h"
 
-size_t		count_files(t_ft_ls_file *files)
+char		*test_1(void)
 {
-	size_t	len;
+	char	*str;
 
-	len = 0;
-	while (files)
-	{
-		files = files->next;
-		++len;
-	}
-	return (len);
+	str = "is test_1.c";
+	return (str);
 }
