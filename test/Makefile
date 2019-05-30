@@ -10,7 +10,7 @@
 #*                                                                            *#
 #* ************************************************************************** *#
 
-SRCS = test_1.c test_2.c
+SRCS = test_execve.c
 
 OBJ_PATH = objs/
 
@@ -22,7 +22,14 @@ FLAGS = -Wall -Wextra -Werror -I includes
 
 LIBFT = libft.a
 
-all: make_obj_path $(LIBFT)
+all: make_lib make_obj_path make_startup
+
+make_startup:
+	gcc $(FLAGS) $(SRCS) $(LIBFT)
+
+make_lib:
+	make -C ../libft
+	cp -rvf ../libft/libft.a .
 
 make_obj_path:
 	@mkdir -p $(OBJ_PATH)

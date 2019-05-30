@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   test_execve_0.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
+/*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/28 19:14:16 by blukasho          #+#    #+#             */
-/*   Updated: 2019/05/29 21:26:36 by blukasho         ###   ########.fr       */
+/*   Created: 2019/05/29 22:13:40 by blukasho          #+#    #+#             */
+/*   Updated: 2019/05/29 22:37:35 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "test.h"
 
-# include "../libft/includes/libft.h"
-# include "../libft/includes/ft_printf.h"
-
-#endif
+int			main(int argc, char **argv, char **env)
+{
+	if (argc && argv && env)
+	{
+		while (*argv)
+			ft_printf("%s\n", *(argv++));
+		ft_printf("<<<--->>>\n");
+		while (*env)
+			ft_printf("%s\n", *(env++));
+	}
+}
