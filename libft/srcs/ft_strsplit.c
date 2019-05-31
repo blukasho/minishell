@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 16:54:26 by blukasho          #+#    #+#             */
-/*   Updated: 2019/01/12 14:37:02 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/05/31 16:38:11 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char		**ft_strsplit(char const *s, char c)
 				if (*s != c)
 				{
 					res[i++] = word_cp(s, c);
-					while (*s != c && *s)
+					while (*s && *s != c)
 						s++;
 					s--;
 				}
