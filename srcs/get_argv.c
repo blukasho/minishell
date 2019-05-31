@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   get_argv.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/28 19:14:16 by blukasho          #+#    #+#             */
-/*   Updated: 2019/05/31 15:17:07 by blukasho         ###   ########.fr       */
+/*   Created: 2019/05/31 13:07:07 by blukasho          #+#    #+#             */
+/*   Updated: 2019/05/31 15:17:43 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
-# define MINISHELL_START_MSG "$>"
+#include "minishell.h"
 
-# include "../libft/includes/libft.h"
-# include "../libft/includes/ft_printf.h"
+char		**get_argv(void)
+{
+	char	*input;
+	char	**argv;
 
-int			minishell(char **env);
-int			print_start_msg(void);
-
-char		*read_line(void);
-char		**get_argv(void);
-
-#endif
+	argv = NULL;
+	input = read_line();
+	if (input && argv)
+	{}
+	return (argv);
+}

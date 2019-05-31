@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   print_start_msg.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/29 11:27:14 by blukasho          #+#    #+#             */
-/*   Updated: 2019/05/29 11:27:37 by blukasho         ###   ########.fr       */
+/*   Created: 2019/05/31 13:02:49 by blukasho          #+#    #+#             */
+/*   Updated: 2019/05/31 13:08:51 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int		test(void)
+int		print_start_msg(void)
 {
-	return (1);
+	ft_printf("%s", MINISHELL_START_MSG);
+	return (0);
 }

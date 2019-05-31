@@ -6,7 +6,7 @@
 #    By: blukasho <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/31 12:56:17 by blukasho          #+#    #+#              #
-#*   Updated: 2019/05/29 11:08:22 by blukasho         ###   ########.fr       *#
+#*   Updated: 2019/05/31 14:36:32 by blukasho         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRCS = ft_bzero.c ft_memcpy.c ft_memset.c ft_memccpy.c ft_memmove.c \
 	   get_next_line.c ft_strlen_chr.c\
 	   ft_int_arr_mult.c ft_int_arr_subtr.c\
 	   ft_sum_two_digits.c ft_pos_exp_of_digit.c ft_neg_exp_of_digit.c\
-	   ft_int_arr_comparing.c\
+	   ft_int_arr_comparing.c ft_print_int_arr.c\
 	   t_sum_two_digits_del.c check_period.c ft_sum.c ft_get_double_bits.c\
 	   ft_get_double_exp.c ft_get_double_man.c\
 	   ft_print_double_bits.c ft_len_of_digit.c\
@@ -34,7 +34,7 @@ SRCS = ft_bzero.c ft_memcpy.c ft_memset.c ft_memccpy.c ft_memmove.c \
 SRCS_FT_PRINTF =  additional_functions.c additional_functions_1.c\
 				  additional_functions_double.c check_errors.c\
 				  convert_double.c ft_printf.c ft_printf_parser.c\
-				  main_function.c parse_flags.c ft_print_int_arr.c\
+				  main_function.c parse_flags.c\
 				  result_preparation.c print_char.c print_pointer.c\
 				  print_unsigned_digits.c print_hexdecimal.c print_double.c\
 				  print_digits.c print_octal.c round_double.c\
@@ -52,9 +52,18 @@ SRCS_PATH_FT_PRINTF = srcs/ft_printf/
 
 FLAGS = -Wall -Wextra -Werror -I includes
 
+DEBUG_FLAGS = -g3 -fsanitize=address
+
 LIBFT = libft.a
 
+DEBUG_LIBFT = libft.a
+
 all: make_objs_path $(LIBFT)
+
+set_debug_flags: 
+	@$(eval FLAGS=$(FLAGS) $(DEBUG_FLAGS))
+
+debug: fclean set_debug_flags all
 
 make_objs_path:
 	@mkdir -p $(OBJ_PATH)
@@ -65,7 +74,7 @@ $(LIBFT): $(OBJ) $(OBJ_FT_PRINTF)
 
 $(OBJ_PATH)%.o: $(SRCS_PATH_FT_PRINTF)%.c
 	gcc $(FLAGS) -c $< -o $@
-
+ 
 $(OBJ_PATH)%.o: $(SRCS_PATH)%.c
 	gcc $(FLAGS) -c $< -o $@
 

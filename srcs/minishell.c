@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/28 19:14:16 by blukasho          #+#    #+#             */
+/*   Created: 2019/05/31 12:50:34 by blukasho          #+#    #+#             */
 /*   Updated: 2019/05/31 15:17:07 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
-# define MINISHELL_START_MSG "$>"
+#include "minishell.h"
 
-# include "../libft/includes/libft.h"
-# include "../libft/includes/ft_printf.h"
+int			minishell(char **env)
+{
+	char	**argv;
 
-int			minishell(char **env);
-int			print_start_msg(void);
+	argv = NULL;
+	if (env && !argv)
+	{}
 
-char		*read_line(void);
-char		**get_argv(void);
-
-#endif
+	while (1)
+	{
+		print_start_msg();
+		argv = get_argv();
+	}
+	return (0);
+}

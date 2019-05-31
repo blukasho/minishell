@@ -6,11 +6,11 @@
 #*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2019/05/28 17:41:01 by blukasho          #+#    #+#             *#
-#*   Updated: 2019/05/29 11:39:09 by blukasho         ###   ########.fr       *#
+#*   Updated: 2019/05/31 15:17:07 by blukasho         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
-SRCS = test.c
+SRCS = minishell.c print_start_msg.c get_argv.c read_line.c
 
 SRCS_DIR = srcs/
 
@@ -30,9 +30,19 @@ INCLUDES = includes/
 
 FLAGS = -Wall -Wextra -Werror -I includes
 
+DEBUG_FLAGS = -g3 -fsanitize=address
+
 MINISHELL_MAIN = srcs/main.c
 
 all: make_lib make_objs_dir $(LIB_NAME) $(NAME)
+
+set_debug_flags:
+	@$(eval FLAGS=$(FLAGS) $(DEBUG_FLAGS))
+
+debug: fclean make_debug_lib set_debug_flags all
+
+make_debug_lib:
+	make debug -C $(LIBFT_PATH)
 
 make_objs_dir:
 	@mkdir -p $(OBJ_DIR)
@@ -46,7 +56,6 @@ $(LIB_NAME): $(OBJ)
 
 $(OBJ_DIR)%.o: $(SRCS_DIR)%.c
 	gcc $(FLAGS) -c $< -o $@
-
 
 make_lib:
 	@make -C $(LIBFT_PATH)

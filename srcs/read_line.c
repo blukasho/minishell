@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   read_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/28 19:14:16 by blukasho          #+#    #+#             */
-/*   Updated: 2019/05/31 15:17:07 by blukasho         ###   ########.fr       */
+/*   Created: 2019/05/31 15:15:06 by blukasho          #+#    #+#             */
+/*   Updated: 2019/05/31 15:29:03 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
-# define MINISHELL_START_MSG "$>"
+#include "minishell.h"
 
-# include "../libft/includes/libft.h"
-# include "../libft/includes/ft_printf.h"
+char		*read_line(void)
+{
+	char	*line;
+	char	buf;
+	int		ret;
 
-int			minishell(char **env);
-int			print_start_msg(void);
-
-char		*read_line(void);
-char		**get_argv(void);
-
-#endif
+	line = ft_strnew(2);
+	while ((ret = read(0, &buf, 1)) && buf != '\n')
+	{}
+	return (line);
+}
