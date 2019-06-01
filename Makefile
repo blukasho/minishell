@@ -6,11 +6,12 @@
 #*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2019/05/28 17:41:01 by blukasho          #+#    #+#             *#
-#*   Updated: 2019/05/31 15:17:07 by blukasho         ###   ########.fr       *#
+#*   Updated: 2019/06/01 13:42:11 by blukasho         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
-SRCS = minishell.c print_start_msg.c get_argv.c read_line.c
+SRCS = minishell.c print_start_msg.c get_argv.c read_line.c clear_argv.c\
+	   get_t_minishell.c check_builtins.c
 
 SRCS_DIR = srcs/
 
