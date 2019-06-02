@@ -6,11 +6,18 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 12:50:34 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/01 14:53:21 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/02 15:39:44 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+static int		start_minishell(t_minishell *s)
+{
+	if (!((s->bin_path) = get_bin_path(s)) && !error_command_not_found(s))
+		return (1);
+	return (0);
+}
 
 int				minishell(char **env)
 {
@@ -21,7 +28,7 @@ int				minishell(char **env)
 	{
 		print_start_msg();
 		s->argv = get_argv();
-		if (check_builtins(s))
+		if ((check_exit(s) && !clear_t_minishell(s)) || !start_minishell(s))
 			return (0);
 		clear_argv(s->argv);
 	}

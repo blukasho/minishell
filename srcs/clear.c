@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_builtins.c                                   :+:      :+:    :+:   */
+/*   clear.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/01 13:40:41 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/02 14:03:52 by blukasho         ###   ########.fr       */
+/*   Created: 2019/06/02 13:55:52 by blukasho          #+#    #+#             */
+/*   Updated: 2019/06/02 13:56:29 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-//may be delete 
-int		check_builtins(t_minishell *s)
+int				clear_t_minishell(t_minishell *s)
 {
-	if (s && s->argv && s->argv[0] && !ft_strcmp(s->argv[0], "exit")
-		&& !clear_t_minishell(s))
-		return (1);
+	if (s && s->argv)
+		clear_argv(s->argv);
+	if (s && s->env)
+		clear_argv(s->env);
+	if (s && s->bin_paths)
+		clear_argv(s->bin_paths);
+	if (s)
+		ft_memdel((void **)&s);
 	return (0);
 }

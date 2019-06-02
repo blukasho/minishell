@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_builtins.c                                   :+:      :+:    :+:   */
+/*   ft_putstr_arr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/01 13:40:41 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/02 14:03:52 by blukasho         ###   ########.fr       */
+/*   Created: 2019/06/02 12:33:52 by blukasho          #+#    #+#             */
+/*   Updated: 2019/06/02 12:56:02 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-//may be delete 
-int		check_builtins(t_minishell *s)
+int		ft_putstr_arr(char **arr)
 {
-	if (s && s->argv && s->argv[0] && !ft_strcmp(s->argv[0], "exit")
-		&& !clear_t_minishell(s))
-		return (1);
+	while (*arr)
+		ft_putendl(*(arr++));
 	return (0);
 }

@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_builtins.c                                   :+:      :+:    :+:   */
+/*   get_bin_paths.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/01 13:40:41 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/02 14:03:52 by blukasho         ###   ########.fr       */
+/*   Created: 2019/06/02 13:43:27 by blukasho          #+#    #+#             */
+/*   Updated: 2019/06/02 13:49:47 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-//may be delete 
-int		check_builtins(t_minishell *s)
+char		**get_bin_paths(char **env)
 {
-	if (s && s->argv && s->argv[0] && !ft_strcmp(s->argv[0], "exit")
-		&& !clear_t_minishell(s))
-		return (1);
-	return (0);
+	char	**bin_paths;
+
+	bin_paths = NULL;
+	while (*env && ft_strncmp(*env, "PATH", 4))
+		++env;
+	if (*env)
+		bin_paths = ft_strsplit(*env + 5, ':');
+	return (bin_paths);
 }

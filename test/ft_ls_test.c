@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_builtins.c                                   :+:      :+:    :+:   */
+/*   ft_ls_test.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/01 13:40:41 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/02 14:03:52 by blukasho         ###   ########.fr       */
+/*   Created: 2019/06/02 13:06:11 by blukasho          #+#    #+#             */
+/*   Updated: 2019/06/02 13:07:00 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include <stdio.h>
 
-//may be delete 
-int		check_builtins(t_minishell *s)
+int		main(void)
 {
-	if (s && s->argv && s->argv[0] && !ft_strcmp(s->argv[0], "exit")
-		&& !clear_t_minishell(s))
-		return (1);
+	printf("Im new ls.\n");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/30 18:40:24 by blukasho          #+#    #+#             */
-/*   Updated: 2019/04/01 14:36:21 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:55:16 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ size_t				ft_count_words(char const *s, char c);
 size_t				ft_strlcat(char *dest, const char *src, size_t dstsize);
 size_t				ft_strlen(const char *s);
 
+int					ft_putstr_arr(char **arr);
 int					ft_int_arr_comparing(int *a, int *b, int a_len, int b_len);
 int					srch_int_in_arr(int *a, int a_len, int srch);
 int					get_next_line(const int fd, char **line);
