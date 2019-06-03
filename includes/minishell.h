@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 19:14:16 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/02 15:38:11 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/03 13:40:45 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 
 # include "../libft/includes/libft.h"
 # include "../libft/includes/ft_printf.h"
+# include <dirent.h>
+# include <sys/stat.h>
 
 typedef struct	s_minishell
 {
@@ -33,8 +35,13 @@ int			clear_argv(char **argv);
 int			check_builtins(t_minishell *s); //may be delete
 int			check_exit(t_minishell *s);
 int			clear_t_minishell(t_minishell *s);
+int			is_way(char *str);
+int			is_dir(char *str);
+int			is_file(char *filename);
 
+int			error_is_dir(t_minishell *s);
 int			error_command_not_found(t_minishell *s);
+int			error_no_such_file_or_directory(t_minishell *s);
 
 char		*read_line(void);
 char		**get_argv(void);
