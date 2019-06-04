@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   test_minishell.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/31 11:37:38 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/04 18:04:33 by blukasho         ###   ########.fr       */
+/*   Created: 2019/06/04 17:50:14 by blukasho          #+#    #+#             */
+/*   Updated: 2019/06/04 17:52:27 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/minishell.h"
 
-void	ft_bzero(void *s, size_t n)
+int		main(int argc, char **argv)
 {
-	ft_memset(s, 0, n);
+	return (is_way(*argv));
 }

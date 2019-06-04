@@ -9,9 +9,10 @@ nnoremap tc :tabclose
 nnoremap tn :tabnew
 nnoremap th :tabp
 nnoremap tl :tabn
+nnoremap tu :tabp
+nnoremap ti :tabn
 nnoremap wq :wa:mksession! mysession.vim:qa
 nnoremap ws :wa:mksession! mysession.vim:sh
-nmap <F1> :Stdheader
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())
 inoremap  u
@@ -20,6 +21,7 @@ unlet s:cpo_save
 set backspace=indent,eol,start
 set display=lastline
 set fileencodings=ucs-bom,utf-8,default,latin1
+set helplang=en
 set hidden
 set history=200
 set hlsearch
@@ -29,18 +31,20 @@ set laststatus=2
 set modelines=1
 set mouse=a
 set nrformats=bin,hex
+set printoptions=paper:a4
 set ruler
+set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim74,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
 set scrolloff=5
 set shiftwidth=4
 set showcmd
 set showmatch
 set smartcase
 set smartindent
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 set tabstop=4
 set ttimeout
 set ttimeoutlen=100
 set wildmenu
-set window=0
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
@@ -52,14 +56,16 @@ set shortmess=aoO
 badd +0 Makefile
 argglobal
 silent! argdel *
-$argadd Makefile
+argadd Makefile
 edit Makefile
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
 wincmd t
-set winminheight=1 winheight=1 winminwidth=1 winwidth=1
+set winheight=1 winwidth=1
 argglobal
+setlocal keymap=
+setlocal noarabic
 setlocal noautoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -76,6 +82,8 @@ setlocal colorcolumn=
 setlocal comments=sO:#\ -,mO:#\ \ ,b:#
 setlocal commentstring=#\ %s
 setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
 setlocal completefunc=
 setlocal nocopyindent
 setlocal cryptmethod=
@@ -105,7 +113,6 @@ setlocal foldtext=foldtext()
 setlocal formatexpr=
 setlocal formatoptions=croql
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal formatprg=
 setlocal grepprg=
 setlocal iminsert=0
 setlocal imsearch=0
@@ -120,7 +127,6 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal nolist
-setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
 setlocal modeline
@@ -136,10 +142,11 @@ setlocal nopreviewwindow
 setlocal quoteescape=\\
 setlocal noreadonly
 setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
 setlocal noscrollbind
 setlocal shiftwidth=4
 setlocal noshortname
-setlocal signcolumn=auto
 setlocal nosmartindent
 setlocal softtabstop=0
 setlocal nospell
@@ -165,19 +172,18 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 38 - ((37 * winheight(0) + 35) / 71)
+let s:l = 49 - ((24 * winheight(0) + 25) / 51)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-38
-normal! 0
+49
+normal! 022|
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif
 unlet! s:wipebuf
 set winheight=1 winwidth=20 shortmess=filnxtToO
-set winminheight=1 winminwidth=1
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if file_readable(s:sx)
   exe "source " . fnameescape(s:sx)
