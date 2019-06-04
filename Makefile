@@ -55,10 +55,10 @@ make_debug_lib:
 	make debug -C $(LIBFT_PATH)
 
 make_objs_dir:
-	mkdir -p $(OBJ_DIR)
+	@mkdir -p $(OBJ_DIR)
 
 make_lib:
-	make -C $(LIBFT_PATH)
+	@make -C $(LIBFT_PATH)
 
 make_re_lib:
 	make re -C $(LIBFT_PATH)
