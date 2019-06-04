@@ -22,13 +22,11 @@ OBJ_DIR = obj/
 
 LIBFT_PATH = libft/
 
-LIB_NAME = libft.a
-
-NAME = minishell
-
 CURR_PATH = .
 
-INCLUDES = includes/
+LIB_NAME = libft.a
+
+MINISHELL = minishell
 
 FLAGS = -Wall -Wextra -Werror -I includes
 
@@ -36,10 +34,13 @@ DEBUG_FLAGS = -g3 -fsanitize=address
 
 MINISHELL_MAIN = srcs/main.c
 
-all: make_lib make_objs_dir $(LIB_NAME) $(NAME)
+all: make_lib make_objs_dir $(MINISHELL)
+
+$(MINISHELL): $(LIB_NAME) $(MINISHELL_MAIN)
+	gcc $(FLAGS) $(MINISHELL_MAIN) $(LIB_NAME) -o $(MINISHELL)
 
 set_debug_flags:
-	@$(eval FLAGS=$(FLAGS) $(DEBUG_FLAGS))
+	$(eval FLAGS=$(FLAGS) $(DEBUG_FLAGS))
 
 debug: fclean make_debug_lib set_debug_flags all
 
@@ -47,10 +48,7 @@ make_debug_lib:
 	make debug -C $(LIBFT_PATH)
 
 make_objs_dir:
-	@mkdir -p $(OBJ_DIR)
-
-$(NAME): $(MINISHELL_MAIN)
-	gcc $(FLAGS) $(MINISHELL_MAIN) $(LIB_NAME) -o $(NAME)
+	mkdir -p $(OBJ_DIR)
 
 $(LIB_NAME): $(OBJ)
 	ar -rv $(LIB_NAME) $^
@@ -60,22 +58,23 @@ $(OBJ_DIR)%.o: $(SRCS_DIR)%.c
 	gcc $(FLAGS) -c $< -o $@
 
 make_lib:
-	@make -C $(LIBFT_PATH)
-	@cp -rf $(LIBFT_PATH)$(LIB_NAME) $(CURR_PATH)
+	make -C $(LIBFT_PATH)
+	cp -rf $(LIBFT_PATH)$(LIB_NAME) $(CURR_PATH)
 
 make_re_lib:
-	@make re -C $(LIBFT_PATH)
+	make re -C $(LIBFT_PATH)
 
 make_clean_lib:
-	@make clean -C $(LIBFT_PATH)
+	make clean -C $(LIBFT_PATH)
 
 make_fclean_lib:
-	@make fclean -C $(LIBFT_PATH)
+	make fclean -C $(LIBFT_PATH)
 
 clean: make_clean_lib
 	rm -rf $(OBJ_DIR)
 
 fclean: make_fclean_lib clean
+	rm -rvf minishell.dSYM
 	rm -rvf $(LIB_NAME)
 	rm -rvf $(NAME)
 

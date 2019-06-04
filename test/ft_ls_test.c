@@ -6,14 +6,15 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/02 13:06:11 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/02 13:07:00 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/04 16:55:29 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include "../includes/minishell.h"
 
 int		main(void)
 {
-	printf("Im new ls.\n");
+	ft_printf("Im new ls.\n");
 	return (0);
 }
