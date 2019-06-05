@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 19:14:16 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/03 13:40:45 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/05 10:56:32 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ typedef struct	s_minishell
 {
 	char		**env;
 	char		**argv;
+	char		**env_paths;
 	char		**bin_paths;
-	char		*bin_path;
 }				t_minishell;
 
 t_minishell	*get_t_minishell(char **env);
@@ -39,14 +39,14 @@ int			is_way(char *str);
 int			is_dir(char *str);
 int			is_file(char *filename);
 
-int			error_is_dir(t_minishell *s);
-int			error_command_not_found(t_minishell *s);
-int			error_no_such_file_or_directory(t_minishell *s);
+int			error_is_dir(char *str);
+int			error_command_not_found(char *str);
+int			error_no_such_file_or_directory(char *str);
 
 char		*read_line(void);
 char		**get_argv(void);
-char		**get_bin_paths(char **env);
-char		*get_bin_path(t_minishell *s);
+char		**get_env_paths(char **env);
+char		**get_bin_paths(t_minishell *s);
 char		**get_dup_string_arr(char **arr);
 
 #endif

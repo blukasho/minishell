@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 13:12:48 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/02 13:56:28 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/05 10:03:01 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_minishell		*get_t_minishell(char **env)
 	{
 		ft_bzero(s, sizeof(t_minishell));
 		s->env = get_dup_string_arr(env);
-		s->bin_paths = get_bin_paths(env);
+		s->env_paths = get_env_paths(env);
 	}
 	return (s);
 }
