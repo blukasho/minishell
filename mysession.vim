@@ -54,16 +54,17 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +19 srcs/main.c
-badd +14 Makefile
+badd +8 Makefile
 badd +1 includes/minishell.h
 badd +28 srcs/minishell.c
 badd +18 srcs/is_dir.c
 badd +17 srcs/error.c
 badd +35 srcs/get_t_minishell.c
 badd +24 srcs/get_env_paths.c
-badd +21 srcs/get_bin_paths.c
+badd +40 srcs/get_bin_paths.c
 badd +1 srcs/clear.c
 badd +1 libft/srcs/ft_get_arr.c
+badd +0 libft/srcs/ft_strdel.c
 argglobal
 silent! argdel *
 argadd srcs/main.c
@@ -189,12 +190,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 40 - ((28 * winheight(0) + 25) / 50)
+let s:l = 33 - ((10 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-40
-normal! 0
+33
+normal! 05|
 wincmd w
 argglobal
 edit srcs/minishell.c
@@ -306,12 +307,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 24 - ((23 * winheight(0) + 25) / 50)
+let s:l = 35 - ((34 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-24
-normal! 019|
+35
+normal! 0
 wincmd w
 exe 'vert 1resize ' . ((&columns * 96 + 96) / 193)
 exe 'vert 2resize ' . ((&columns * 96 + 96) / 193)
@@ -430,12 +431,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 14 - ((13 * winheight(0) + 25) / 50)
+let s:l = 24 - ((23 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-14
-normal! 0
+24
+normal! 08|
 tabedit Makefile
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -557,12 +558,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 8 - ((7 * winheight(0) + 25) / 50)
+let s:l = 19 - ((18 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-8
-normal! 059|
+19
+normal! 044|
 wincmd w
 argglobal
 edit includes/minishell.h
@@ -674,12 +675,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 23 - ((20 * winheight(0) + 25) / 50)
+let s:l = 34 - ((31 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-23
-normal! 0
+34
+normal! 029|
 wincmd w
 exe 'vert 1resize ' . ((&columns * 96 + 96) / 193)
 exe 'vert 2resize ' . ((&columns * 96 + 96) / 193)

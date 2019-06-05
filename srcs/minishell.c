@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 12:50:34 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/05 14:55:37 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/05 22:56:26 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int		start_minishell(t_minishell *s)
 {
 	if (check_exit(s))
-		return (clear_t_minishell(s));
+		return (0);
 	if (!((s->bin_paths) = get_bin_paths(s)) && !error_command_not_found(*(s->argv)))
 		return (1);
 	if (is_dir(*(s->argv)) && !error_is_dir(*(s->argv)))
@@ -36,10 +36,8 @@ int				minishell(char **env)
 		s->argv = get_argv();
 		if (*(s->argv) && !start_minishell(s) && !clear_t_minishell(s))
 			return (0);
-		clear_argv(s->argv);
-		s->argv = NULL;
-		clear_argv(s->bin_paths);
-		s->bin_paths = NULL;
+		clear_argv(&(s->argv));
+		clear_argv(&(s->bin_paths));
 	}
 	return (0);
 } 
