@@ -6,15 +6,15 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/05 10:46:32 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/05 22:56:26 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/07 12:44:00 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-static char	**add_path_to_arr(char **arr, char *path)
+static char			**add_path_to_arr(char **arr, char *path)
 {
-	int		len;
-	char	**tmp;
+	int				len;
+	char			**tmp;
 
 	tmp = arr;
 	if ((len = 2) && arr)
@@ -25,10 +25,11 @@ static char	**add_path_to_arr(char **arr, char *path)
 		{
 			len = -1;
 			while (tmp[++len])
-				arr[len] = tmp[len];
+				arr[len] = ft_strdup(tmp[len]);
 			arr[len++] = ft_strdup(path);
 			arr[len] = NULL;
 		}
+		return (arr);
 	}
 	else if ((arr = (char **)malloc(len * sizeof(char *))))
 	{
@@ -39,18 +40,42 @@ static char	**add_path_to_arr(char **arr, char *path)
 	return (NULL);
 }
 
-static char	*get_bin_in_path(char *path, char *bin)
+static char			*add_path_to_bin(char *path, char *bin)
 {
-	if (path && bin)
-	{}
+	char			*res;
+	char			*tmp;
+
+	if (!(tmp = ft_strjoin(path, "/")))
+		return (NULL);
+	if (!(res = ft_strjoin(tmp, bin)) && !ft_strdel(&tmp))
+		return (NULL);
+	ft_strdel(&tmp);
+	return (res);
+}
+
+static char			*get_bin_in_path(char *path, char *bin)
+{
+	DIR				*dir;
+	struct dirent	*file;
+
+	if (!(dir = opendir(path)))
+		return (NULL);
+	while ((file = readdir(dir)))
+		if (!ft_strcmp(file->d_name, bin))
+		{
+			closedir(dir);
+			return (add_path_to_bin(path, bin));
+		}
+	if (dir)
+		closedir(dir);
 	return (NULL);
 }
 
-char		**get_bin_paths(t_minishell *s)
+char				**get_bin_paths(t_minishell *s)
 {
-	char	**env_paths;
-	char	**tmp_bin_paths;
-	char	*tmp_str;
+	char			**env_paths;
+	char			**tmp_bin_paths;
+	char			*tmp_str;
 
 	if (is_way(*(s->argv)))
 		return (add_path_to_arr(s->bin_paths, *(s->argv)));

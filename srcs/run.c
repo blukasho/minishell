@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   run.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/04 10:54:45 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/07 11:12:52 by blukasho         ###   ########.fr       */
+/*   Created: 2019/06/07 15:01:35 by blukasho          #+#    #+#             */
+/*   Updated: 2019/06/07 15:43:31 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "minishell.h"
 
-char	*ft_strdel(char **as)
+int			run_minishell(t_minishell *s)
 {
-	if (as && *as)
-	{
-		free(*as);
-		*as = NULL;
-	}
-	return (NULL);
+	char	**bin_paths;
+	int		status;
+	pid_t	pid;
+
+	bin_paths = s->bin_paths;
+	if ((pid = fork()) == -1)
+		put_error("fork");
+	if (pid == 0)
+		execve(*bin_paths, s->argv, s->env);
+	else
+		wait(&status);
+	return (1);
 }

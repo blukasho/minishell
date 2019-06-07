@@ -6,13 +6,13 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/04 17:50:14 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/04 17:52:27 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/07 15:46:42 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include <stdio.h>
 
 int		main(int argc, char **argv)
 {
-	return (is_way(*argv));
+	return (printf("Im test minishell\n"));
 }
