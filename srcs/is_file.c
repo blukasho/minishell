@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 13:33:16 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/03 13:42:03 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/07 16:20:18 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 int				is_file(char *filename)
 {
-	struct stat	sb;
-
-	if (!lstat(filename, &sb))
+	if (!access(filename, F_OK))
 		return (1);
 	return (0);
 }

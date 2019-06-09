@@ -6,7 +6,7 @@
 #*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2019/05/28 17:41:01 by blukasho          #+#    #+#             *#
-#*   Updated: 2019/06/07 15:02:40 by blukasho         ###   ########.fr       *#
+#*   Updated: 2019/06/07 16:22:13 by blukasho         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -49,7 +49,7 @@ set_debug_flags:
 $(OBJ_DIR)%.o: $(SRCS_DIR)%.c
 	gcc $(FLAGS) -c $< -o $@
 
-debug: fclean make_debug_lib set_debug_flags all
+debug: make_debug_lib set_debug_flags all
 
 make_debug_lib:
 	make debug -C $(LIBFT_PATH)

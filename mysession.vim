@@ -54,11 +54,11 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +19 srcs/main.c
-badd +7 Makefile
+badd +13 Makefile
 badd +1 includes/minishell.h
 badd +28 srcs/minishell.c
 badd +18 srcs/is_dir.c
-badd +17 srcs/error.c
+badd +43 srcs/error.c
 badd +35 srcs/get_t_minishell.c
 badd +24 srcs/get_env_paths.c
 badd +74 srcs/get_bin_paths.c
@@ -66,12 +66,16 @@ badd +1 srcs/clear.c
 badd +1 libft/srcs/ft_get_arr.c
 badd +1 libft/srcs/ft_strdel.c
 badd +74 libft/includes/libft.h
-badd +0 srcs/run.c
+badd +16 srcs/run.c
+badd +12 srcs/is_file.c
+badd +12 srcs/is_way.c
+badd +0 libft/srcs/ft_strchr.c
+badd +0 libft/Makefile
 argglobal
 silent! argdel *
 argadd srcs/main.c
 set stal=2
-edit srcs/run.c
+edit srcs/get_bin_paths.c
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -192,12 +196,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 18 - ((17 * winheight(0) + 25) / 50)
+let s:l = 80 - ((32 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-18
-normal! 019|
+80
+normal! 049|
 wincmd w
 argglobal
 edit srcs/minishell.c
@@ -309,13 +313,14 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 18 - ((17 * winheight(0) + 25) / 50)
+let s:l = 37 - ((36 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-18
-normal! 019|
+37
+normal! 021|
 wincmd w
+2wincmd w
 exe 'vert 1resize ' . ((&columns * 96 + 96) / 193)
 exe 'vert 2resize ' . ((&columns * 96 + 96) / 193)
 tabedit srcs/error.c
@@ -439,11 +444,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 43 - ((42 * winheight(0) + 25) / 50)
+let s:l = 21 - ((20 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-43
+21
 normal! 0
 wincmd w
 argglobal
@@ -556,7 +561,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 25 - ((24 * winheight(0) + 25) / 50)
+let s:l = 25 - ((17 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -686,12 +691,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 13 - ((12 * winheight(0) + 25) / 50)
+let s:l = 48 - ((39 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-13
-normal! 060|
+48
+normal! 0
 wincmd w
 argglobal
 edit includes/minishell.h
@@ -803,12 +808,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 17 - ((5 * winheight(0) + 25) / 50)
+let s:l = 46 - ((34 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-17
-normal! 022|
+46
+normal! 0
 wincmd w
 exe 'vert 1resize ' . ((&columns * 96 + 96) / 193)
 exe 'vert 2resize ' . ((&columns * 96 + 96) / 193)

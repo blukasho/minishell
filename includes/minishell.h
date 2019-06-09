@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 19:14:16 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/07 15:25:32 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/09 19:17:50 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,8 @@ int			is_way(char *str);
 int			is_dir(char *str);
 int			is_file(char *filename);
 
-int			error_is_dir(char *str);
 int			error_command_not_found(char *str);
-int			error_no_such_file_or_directory(char *str);
-int			put_error(char *str);
+int			put_error(char *file, char *err);
 
 char		*read_line(void);
 char		**get_argv(void);

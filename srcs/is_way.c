@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 12:30:42 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/03 12:54:39 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/07 15:59:25 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		is_way(char *str)
 {
 	if (!ft_strncmp(str, "./", 2) || !ft_strncmp(str, "/", 1) ||
-		!ft_strncmp(str, "../", 3))
+		!ft_strncmp(str, "../", 3) || ft_strchr(str, '/'))
 		return (1);
 	return (0);
 }

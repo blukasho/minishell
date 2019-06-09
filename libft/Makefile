@@ -6,7 +6,7 @@
 #    By: blukasho <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/31 12:56:17 by blukasho          #+#    #+#              #
-#*   Updated: 2019/06/02 12:55:16 by blukasho         ###   ########.fr       *#
+#*   Updated: 2019/06/07 16:22:56 by blukasho         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ all: make_objs_path $(LIBFT)
 set_debug_flags: 
 	@$(eval FLAGS=$(FLAGS) $(DEBUG_FLAGS))
 
-debug: fclean set_debug_flags all
+debug: set_debug_flags all
 
 make_objs_path:
 	@mkdir -p $(OBJ_PATH)
