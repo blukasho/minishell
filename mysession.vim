@@ -51,18 +51,20 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +1 srcs/minishell.c
-badd +62 srcs/get_bin_paths.c
+badd +15 srcs/get_bin_paths.c
 badd +19 srcs/error.c
 badd +1 Makefile
 badd +37 includes/minishell.h
 badd +18 srcs/check_builtins.c
 badd +19 srcs/exit.c
-badd +23 srcs/echo.c
+badd +22 srcs/echo.c
+badd +0 srcs/cd.c
+badd +0 srcs/main.c
 argglobal
 silent! argdel *
 $argadd srcs/minishell.c
 set stal=2
-edit srcs/get_bin_paths.c
+edit srcs/main.c
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -180,12 +182,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 65 - ((37 * winheight(0) + 35) / 70)
+let s:l = 17 - ((16 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-65
-normal! 09|
+17
+normal! 05|
 wincmd w
 argglobal
 edit srcs/minishell.c
@@ -303,7 +305,7 @@ normal! 0
 wincmd w
 exe 'vert 1resize ' . ((&columns * 103 + 102) / 205)
 exe 'vert 2resize ' . ((&columns * 101 + 102) / 205)
-tabedit srcs/echo.c
+tabedit srcs/cd.c
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -313,8 +315,8 @@ set nosplitbelow
 set nosplitright
 wincmd t
 set winminheight=1 winheight=1 winminwidth=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 103 + 102) / 205)
-exe 'vert 2resize ' . ((&columns * 101 + 102) / 205)
+exe 'vert 1resize ' . ((&columns * 102 + 102) / 205)
+exe 'vert 2resize ' . ((&columns * 102 + 102) / 205)
 argglobal
 setlocal noautoindent
 setlocal backupcopy=
@@ -421,12 +423,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 35 - ((34 * winheight(0) + 35) / 70)
+let s:l = 14 - ((13 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-35
-normal! 015|
+14
+normal! 0
 wincmd w
 argglobal
 edit srcs/check_builtins.c
@@ -535,15 +537,15 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 15 - ((14 * winheight(0) + 35) / 70)
+let s:l = 17 - ((16 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-15
-normal! 016|
+17
+normal! 0
 wincmd w
-exe 'vert 1resize ' . ((&columns * 103 + 102) / 205)
-exe 'vert 2resize ' . ((&columns * 101 + 102) / 205)
+exe 'vert 1resize ' . ((&columns * 102 + 102) / 205)
+exe 'vert 2resize ' . ((&columns * 102 + 102) / 205)
 tabedit includes/minishell.h
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -662,12 +664,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 37 - ((36 * winheight(0) + 35) / 70)
+let s:l = 45 - ((44 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-37
-normal! 0
+45
+normal! 031|
 wincmd w
 argglobal
 edit Makefile

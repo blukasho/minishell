@@ -12,7 +12,7 @@
 
 SRCS = minishell.c print_start_msg.c get_argv.c read_line.c\
 	   get_t_minishell.c check_builtins.c get_env_paths.c clear.c exit.c\
-	   error.c get_bin_paths.c is_way.c is_dir.c is_file.c run.c echo.c\
+	   error.c get_bin_paths.c is_way.c is_dir.c is_file.c run.c echo.c cd.c\
 
 SRCS_DIR = srcs/
 

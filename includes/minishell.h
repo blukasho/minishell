@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 19:14:16 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/10 17:35:31 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/10 18:50:17 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int			is_file(char *filename);
 int			error_command_not_found(char *str);
 int			put_error(char *file, char *err);
 
+int			cd(t_minishell *s);
 int			echo(t_minishell *s);
 
 char		*read_line(void);
