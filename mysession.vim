@@ -57,7 +57,7 @@ badd +1 Makefile
 badd +37 includes/minishell.h
 badd +18 srcs/check_builtins.c
 badd +19 srcs/exit.c
-badd +27 srcs/echo.c
+badd +23 srcs/echo.c
 argglobal
 silent! argdel *
 $argadd srcs/minishell.c
@@ -180,12 +180,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 62 - ((34 * winheight(0) + 35) / 70)
+let s:l = 65 - ((37 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-62
-normal! 014|
+65
+normal! 09|
 wincmd w
 argglobal
 edit srcs/minishell.c
@@ -421,12 +421,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 23 - ((22 * winheight(0) + 35) / 70)
+let s:l = 35 - ((34 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-23
-normal! 09|
+35
+normal! 015|
 wincmd w
 argglobal
 edit srcs/check_builtins.c
@@ -785,7 +785,7 @@ normal! 0
 wincmd w
 exe 'vert 1resize ' . ((&columns * 103 + 102) / 205)
 exe 'vert 2resize ' . ((&columns * 101 + 102) / 205)
-tabnext 1
+tabnext 2
 set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
