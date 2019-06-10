@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 12:50:34 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/07 16:02:59 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/10 17:16:35 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static int		construction_minishell(t_minishell *s)
 {
 	if (check_exit(s))
 		return (0);
-	if (!((s->bin_paths) = get_bin_paths(s)) &&
-		!error_command_not_found(*(s->argv)))
+	if (!((s->bin_paths) = get_bin_paths(s)) && !is_way(*(s->argv)) &&
+		!put_error(*(s->argv), "command not found"))
 		return (1);
 	if (check_errors_minishell(s))
 		return (1);
