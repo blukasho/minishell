@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 12:50:34 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/10 17:26:10 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/11 19:32:52 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,12 @@ int				minishell(char **env)
 {
 	t_minishell	*s;
 
-	s = get_t_minishell(env);
-	while (!0)
+	if (*env)
+		s = get_t_minishell(env);
+	else
+		return (put_error("environment, ",
+				"minishell dont work without **env"));
+	while (!0 && *env)
 	{
 		print_start_msg();
 		s->argv = get_argv();

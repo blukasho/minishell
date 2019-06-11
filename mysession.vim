@@ -60,7 +60,7 @@ badd +1 srcs/minishell.c
 badd +18 srcs/get_bin_paths.c
 badd +19 srcs/error.c
 badd +1 Makefile
-badd +49 includes/minishell.h
+badd +52 includes/minishell.h
 badd +18 srcs/check_builtins.c
 badd +19 srcs/exit.c
 badd +22 srcs/echo.c
@@ -74,8 +74,8 @@ badd +13 srcs/print_start_msg.c
 badd +90 libft/includes/libft.h
 badd +1 libft/srcs/ft_str_del_arr.c
 badd +6 srcs/unsetenv.c
-badd +0 srcs/setenv.c
-badd +0 libft/srcs/ft_isalpha.c
+badd +18 srcs/setenv.c
+badd +1 libft/srcs/ft_isalpha.c
 argglobal
 silent! argdel *
 argadd srcs/minishell.c
@@ -201,11 +201,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 18 - ((17 * winheight(0) + 25) / 50)
+let s:l = 7 - ((6 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-18
+7
 normal! 021|
 wincmd w
 argglobal
@@ -318,16 +318,17 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 24 - ((12 * winheight(0) + 25) / 50)
+let s:l = 26 - ((16 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-24
-normal! 065|
+26
+normal! 019|
 wincmd w
+2wincmd w
 exe 'vert 1resize ' . ((&columns * 96 + 96) / 193)
 exe 'vert 2resize ' . ((&columns * 96 + 96) / 193)
-tabedit libft/srcs/ft_isalpha.c
+tabedit srcs/minishell.c
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -442,11 +443,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 6 - ((5 * winheight(0) + 25) / 50)
+let s:l = 30 - ((29 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-6
+30
 normal! 0
 tabedit includes/minishell.h
 set splitbelow splitright
@@ -569,12 +570,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 52 - ((38 * winheight(0) + 25) / 50)
+let s:l = 33 - ((32 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-52
-normal! 043|
+33
+normal! 034|
 lcd ~/Documents/projects/minishell
 wincmd w
 argglobal

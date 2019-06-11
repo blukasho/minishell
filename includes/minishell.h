@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 19:14:16 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/11 18:30:00 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/11 19:30:50 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int			minishell(char **env);
 int			run_minishell(t_minishell *s);
 int			print_start_msg(void);
 int			clear_argv(char ***argv);
-int			check_builtins(t_minishell *s); //may be delete
+int			check_builtins(t_minishell *s);
 int			check_errors_minishell(t_minishell *s);
 int			check_exit(t_minishell *s);
 int			clear_t_minishell(t_minishell *s);
