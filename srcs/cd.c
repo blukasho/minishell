@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 18:49:10 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/11 15:32:28 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/11 20:06:57 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static int	set_old_pwd(t_minishell *s, char *old_pwd)
 	env = s->env;
 	while (*env)
 	{
-		if (!ft_strncmp("OLD_PWD=", *env, 8) && (tmp = *env))
+		if (!ft_strncmp("OLDPWD=", *env, 7) && (tmp = *env))
 		{
-			*env = ft_strjoin("OLD_PWD=", old_pwd);
+			*env = ft_strjoin("OLDPWD=", old_pwd);
 			ft_strdel(&old_pwd);
 			ft_strdel(&tmp);
 			return (0);
@@ -30,7 +30,7 @@ static int	set_old_pwd(t_minishell *s, char *old_pwd)
 		++env;
 	}
 	env = s->env;
-	tmp = ft_strjoin("OLD_PWD=", old_pwd);
+	tmp = ft_strjoin("OLDPWD=", old_pwd);
 	s->env = add_string_to_arr(env, tmp);
 	ft_strdel(&tmp);
 	ft_strdel(&old_pwd);

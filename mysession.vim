@@ -56,11 +56,11 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +1 srcs/minishell.c
+badd +30 srcs/minishell.c
 badd +18 srcs/get_bin_paths.c
 badd +19 srcs/error.c
 badd +1 Makefile
-badd +52 includes/minishell.h
+badd +33 includes/minishell.h
 badd +18 srcs/check_builtins.c
 badd +19 srcs/exit.c
 badd +22 srcs/echo.c
@@ -74,7 +74,7 @@ badd +13 srcs/print_start_msg.c
 badd +90 libft/includes/libft.h
 badd +1 libft/srcs/ft_str_del_arr.c
 badd +6 srcs/unsetenv.c
-badd +18 srcs/setenv.c
+badd +7 srcs/setenv.c
 badd +1 libft/srcs/ft_isalpha.c
 argglobal
 silent! argdel *
@@ -318,17 +318,16 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 26 - ((16 * winheight(0) + 25) / 50)
+let s:l = 23 - ((13 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-26
+23
 normal! 019|
 wincmd w
-2wincmd w
 exe 'vert 1resize ' . ((&columns * 96 + 96) / 193)
 exe 'vert 2resize ' . ((&columns * 96 + 96) / 193)
-tabedit srcs/minishell.c
+tabedit srcs/cd.c
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -443,11 +442,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 30 - ((29 * winheight(0) + 25) / 50)
+let s:l = 83 - ((33 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-30
+83
 normal! 0
 tabedit includes/minishell.h
 set splitbelow splitright
@@ -698,7 +697,7 @@ lcd ~/Documents/projects/minishell
 wincmd w
 exe 'vert 1resize ' . ((&columns * 97 + 96) / 193)
 exe 'vert 2resize ' . ((&columns * 95 + 96) / 193)
-tabnext 1
+tabnext 2
 set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
