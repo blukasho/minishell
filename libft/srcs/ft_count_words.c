@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 16:10:27 by blukasho          #+#    #+#             */
-/*   Updated: 2019/01/12 14:36:55 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/12 01:18:03 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@ size_t	ft_count_words(char const *s, char c)
 	res = 0;
 	while (*s)
 	{
-		if (*s != c)
+		if (*s && *s != c)
 		{
-			while (*s != c && *s)
+			while (*s && *s != c)
 				s++;
 			res++;
 		}
-		s++;
+		if (*s)
+			s++;
 	}
 	return (res);
 }

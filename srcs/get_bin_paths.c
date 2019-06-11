@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/05 10:46:32 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/11 13:46:55 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/12 00:16:49 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char				**get_bin_paths(t_minishell *s)
 	if (is_way(*(s->argv)) && is_file(*(s->argv)))
 		return (add_string_to_arr(s->bin_paths, *(s->argv)));
 	env_paths = s->env_paths;
-	while (*env_paths)
+	while (env_paths && *env_paths)
 	{
 		tmp_bin_paths = s->bin_paths;
 		if ((tmp_str = get_bin_in_path(*env_paths, *(s->argv))))

@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 12:50:34 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/11 21:49:00 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/12 00:42:21 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,8 @@ int				minishell(char **env)
 			return (0);
 		clear_argv(&(s->argv));
 		clear_argv(&(s->bin_paths));
-		//test code
 		if (s->env_paths)
-			clear_argv(&s->env_paths);
+			clear_argv(&(s->env_paths));
 		s->env_paths = get_env_paths(s->env);
 	}
 	return (0);
