@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 19:14:16 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/11 13:46:55 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/11 16:32:43 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int			put_error(char *file, char *err);
 int			cd(t_minishell *s);
 int			echo(t_minishell *s);
 int			env(t_minishell *s);
+int			minishell_unsetenv(t_minishell *s);
 
 char		*read_line(void);
 char		**get_argv(void);
