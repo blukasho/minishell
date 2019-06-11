@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/30 18:40:24 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/07 11:12:51 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/11 14:42:05 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ char				*ft_strcat(char *s1, const char *s2);
 char				*ft_strncpy(char *dest, const char *src, size_t n);
 char				*ft_strcpy(char *dest, const char *src);
 char				*ft_strdup(const char *s1);
+int					ft_str_del_arr(char **arr);
 char				**ft_get_arr(size_t x, size_t y);
 char				**ft_strsplit(char const *s, char c);
 

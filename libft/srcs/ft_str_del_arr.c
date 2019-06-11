@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_builtins.c                                   :+:      :+:    :+:   */
+/*   ft_str_del_arr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/01 13:40:41 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/11 13:32:41 by blukasho         ###   ########.fr       */
+/*   Created: 2019/06/11 14:37:42 by blukasho          #+#    #+#             */
+/*   Updated: 2019/06/11 14:42:32 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-//may be delete 
-int		check_builtins(t_minishell *s)
+int			ft_str_del_arr(char **arr)
 {
-	if (!ft_strcmp(*(s->argv), "echo") && !echo(s))
-		return (1);
-	if (!ft_strcmp(*(s->argv), "cd") && !cd(s))
-		return (1);
-	if (!ft_strcmp(*(s->argv), "setenv"))
-		return (1);
-	if (!ft_strcmp(*(s->argv), "unsetenv"))
-		return (1);
-	if (!ft_strcmp(*(s->argv), "env") && !env(s))
-		return (1);
+	char	**tmp;
+
+	tmp = arr;
+	while (*arr)
+		ft_strdel(&(*(arr++)));
+	free(tmp);
 	return (0);
 }

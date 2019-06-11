@@ -6,11 +6,39 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 18:49:10 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/10 20:37:12 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/11 14:47:50 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+static int	set_pwd(t_minishell *s)
+{
+	char	**env;
+	char	*tmp;
+	char	*new_pwd;
+
+	env = s->env;
+	if (!(tmp = getcwd(NULL, 0)))
+			return (put_error("ERROR in set_pwd()", "getcwd()"));
+	while (*env)
+	{
+		if (!ft_strncmp("PWD=", *env, 4) && !ft_strdel(&(*env)))
+		{
+			*env = ft_strjoin("PWD=", tmp);
+			ft_strdel(&tmp);
+			return (0);
+		}
+		++env;
+	}
+	env = s->env;
+	new_pwd = ft_strjoin("PWD=", tmp);
+	s->env = add_string_to_arr(env, new_pwd);
+	ft_strdel(&new_pwd);
+	ft_strdel(&tmp);
+	ft_str_del_arr(env);
+	return (0);
+}
 
 static int	check_cd_errors(char *pathname)
 {
@@ -39,7 +67,8 @@ int			cd(t_minishell *s)
 	if (chdir(*argv) == -1 && !put_error(*argv, "ERROR chdir()") &&
 		!ft_strdel(&old_pwd))
 		return (0);
-//	set_pwd_env(s);
-	//need set pwd && oldpwd env variables
+	ft_strdel(&old_pwd);
+//	set_old_pwd(s, old_pwd);
+	set_pwd(s);
 	return (0);
 }

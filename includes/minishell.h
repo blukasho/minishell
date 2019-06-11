@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 19:14:16 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/10 20:11:36 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/11 13:46:55 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ char		**get_argv(void);
 char		**get_env_paths(char **env);
 char		**get_bin_paths(t_minishell *s);
 char		**get_dup_string_arr(char **arr);
+char		**add_string_to_arr(char **arr, char *path);
 
 #endif

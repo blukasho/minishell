@@ -6,14 +6,14 @@
 #*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2019/05/28 17:41:01 by blukasho          #+#    #+#             *#
-#*   Updated: 2019/06/07 16:22:13 by blukasho         ###   ########.fr       *#
+#*   Updated: 2019/06/11 13:46:55 by blukasho         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
 SRCS = minishell.c print_start_msg.c get_argv.c read_line.c\
 	   get_t_minishell.c check_builtins.c get_env_paths.c clear.c exit.c\
 	   error.c get_bin_paths.c is_way.c is_dir.c is_file.c run.c echo.c cd.c\
-	   env.c
+	   env.c add_string_to_arr.c
 
 SRCS_DIR = srcs/
 
