@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 13:40:41 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/11 16:39:37 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/11 18:31:36 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		check_builtins(t_minishell *s)
 		return (1);
 	if (!ft_strcmp(*(s->argv), "cd") && !cd(s))
 		return (1);
-	if (!ft_strcmp(*(s->argv), "setenv"))
+	if (!ft_strcmp(*(s->argv), "setenv") && !minishell_setenv(s))
 		return (1);
 	if (!ft_strcmp(*(s->argv), "unsetenv") && !minishell_unsetenv(s))
 		return (1);
