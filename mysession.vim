@@ -60,11 +60,11 @@ badd +1 srcs/minishell.c
 badd +18 srcs/get_bin_paths.c
 badd +19 srcs/error.c
 badd +1 Makefile
-badd +46 includes/minishell.h
+badd +48 includes/minishell.h
 badd +18 srcs/check_builtins.c
 badd +19 srcs/exit.c
 badd +22 srcs/echo.c
-badd +1 srcs/cd.c
+badd +19 srcs/cd.c
 badd +11 srcs/main.c
 badd +23 srcs/env.c
 badd +23 libft/srcs/ft_strdel.c
@@ -72,7 +72,7 @@ badd +22 libft/Makefile
 badd +30 srcs/add_string_to_arr.c
 badd +13 srcs/print_start_msg.c
 badd +90 libft/includes/libft.h
-badd +0 libft/srcs/ft_str_del_arr.c
+badd +1 libft/srcs/ft_str_del_arr.c
 argglobal
 silent! argdel *
 argadd srcs/minishell.c
@@ -319,12 +319,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 19 - ((17 * winheight(0) + 25) / 50)
+let s:l = 68 - ((38 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-19
-normal! 013|
+68
+normal! 0
 wincmd w
 argglobal
 edit srcs/check_builtins.c
@@ -436,7 +436,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 29 - ((25 * winheight(0) + 25) / 50)
+let s:l = 29 - ((17 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -694,6 +694,7 @@ exe s:l
 normal! zt
 48
 normal! 031|
+lcd ~/Documents/projects/minishell
 wincmd w
 argglobal
 edit ~/Documents/projects/minishell/Makefile
@@ -811,6 +812,7 @@ exe s:l
 normal! zt
 8
 normal! 032|
+lcd ~/Documents/projects/minishell
 wincmd w
 exe 'vert 1resize ' . ((&columns * 97 + 96) / 193)
 exe 'vert 2resize ' . ((&columns * 95 + 96) / 193)
