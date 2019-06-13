@@ -176,12 +176,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 44 - ((43 * winheight(0) + 25) / 50)
+let s:l = 40 - ((39 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-44
-normal! 033|
+40
+normal! 023|
 tabedit srcs/print.c
 set splitbelow splitright
 set nosplitbelow
@@ -297,12 +297,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 11 - ((10 * winheight(0) + 25) / 50)
+let s:l = 37 - ((36 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-11
-normal! 015|
+37
+normal! 077|
 tabedit includes/minishell.h
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -424,11 +424,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 25 - ((13 * winheight(0) + 25) / 50)
+let s:l = 55 - ((43 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-25
+55
 normal! 022|
 wincmd w
 argglobal
@@ -550,7 +550,7 @@ normal! 0
 wincmd w
 exe 'vert 1resize ' . ((&columns * 96 + 96) / 193)
 exe 'vert 2resize ' . ((&columns * 96 + 96) / 193)
-tabnext 1
+tabnext 2
 set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
