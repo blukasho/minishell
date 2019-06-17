@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 19:14:16 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/13 09:54:12 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/17 14:16:45 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int			minishell_unsetenv(t_minishell *s);
 int			minishell_setenv(t_minishell *s);
 
 char		*read_line(void);
+char		*manage_expansions(char *input);
 char		**get_argv(void);
 char		**get_env_paths(char **env);
 char		**get_bin_paths(t_minishell *s);
