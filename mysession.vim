@@ -52,10 +52,12 @@ endif
 set shortmess=aoO
 badd +1 srcs/minishell.c
 badd +1 Makefile
-badd +57 includes/minishell.h
+badd +56 includes/minishell.h
 badd +1 srcs/get_argv.c
 badd +1 srcs/expansions.c
-badd +11 srcs/manage_tilda.c
+badd +13 srcs/manage_tilda.c
+badd +1 libft
+badd +0 libft/srcs/ft_strcmp.c
 argglobal
 silent! argdel *
 $argadd srcs/minishell.c
@@ -172,7 +174,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 39 - ((37 * winheight(0) + 35) / 70)
+let s:l = 39 - ((35 * winheight(0) + 33) / 67)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -290,11 +292,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 16 - ((14 * winheight(0) + 35) / 70)
+let s:l = 27 - ((24 * winheight(0) + 33) / 67)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-16
+27
 normal! 0
 tabedit srcs/manage_tilda.c
 set splitbelow splitright
@@ -306,8 +308,8 @@ set nosplitbelow
 set nosplitright
 wincmd t
 set winminheight=1 winheight=1 winminwidth=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 100 + 100) / 200)
-exe 'vert 2resize ' . ((&columns * 99 + 100) / 200)
+exe 'vert 1resize ' . ((&columns * 98 + 98) / 197)
+exe 'vert 2resize ' . ((&columns * 98 + 98) / 197)
 argglobal
 setlocal noautoindent
 setlocal backupcopy=
@@ -414,12 +416,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 13 - ((11 * winheight(0) + 35) / 70)
+let s:l = 26 - ((24 * winheight(0) + 33) / 67)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-13
-normal! 06|
+26
+normal! 055|
 wincmd w
 argglobal
 edit srcs/expansions.c
@@ -528,15 +530,15 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 17 - ((15 * winheight(0) + 35) / 70)
+let s:l = 19 - ((16 * winheight(0) + 33) / 67)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-17
-normal! 031|
+19
+normal! 028|
 wincmd w
-exe 'vert 1resize ' . ((&columns * 100 + 100) / 200)
-exe 'vert 2resize ' . ((&columns * 99 + 100) / 200)
+exe 'vert 1resize ' . ((&columns * 98 + 98) / 197)
+exe 'vert 2resize ' . ((&columns * 98 + 98) / 197)
 tabedit includes/minishell.h
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -547,8 +549,8 @@ set nosplitbelow
 set nosplitright
 wincmd t
 set winminheight=1 winheight=1 winminwidth=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 99 + 100) / 200)
-exe 'vert 2resize ' . ((&columns * 100 + 100) / 200)
+exe 'vert 1resize ' . ((&columns * 97 + 98) / 197)
+exe 'vert 2resize ' . ((&columns * 99 + 98) / 197)
 argglobal
 setlocal noautoindent
 setlocal backupcopy=
@@ -655,7 +657,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 56 - ((45 * winheight(0) + 35) / 70)
+let s:l = 56 - ((43 * winheight(0) + 33) / 67)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -769,15 +771,15 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 14 - ((13 * winheight(0) + 35) / 70)
+let s:l = 14 - ((11 * winheight(0) + 33) / 67)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 14
 normal! 073|
 wincmd w
-exe 'vert 1resize ' . ((&columns * 99 + 100) / 200)
-exe 'vert 2resize ' . ((&columns * 100 + 100) / 200)
+exe 'vert 1resize ' . ((&columns * 97 + 98) / 197)
+exe 'vert 2resize ' . ((&columns * 99 + 98) / 197)
 tabnext 4
 set stal=1
 if exists('s:wipebuf')
