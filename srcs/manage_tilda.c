@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/17 19:05:41 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/18 16:35:50 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/18 16:57:21 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static char	*get_home(char **env)
 	if (env)
 		while (*env)
 			if (!ft_strncmp(*env, "HOME=", 5))
-				return (*(env + 5));
+				return (*env + 5);
 			else
 				++env;
 	return (NULL);
@@ -33,7 +33,14 @@ static char	*get_result_string(char *input, char *home)
 	while (input[len_bef] != '~')
 		++len_bef;
 	len_aft = ft_strlen(input) - len_bef;
-	res = ft_strnew((len_aft + len_bef + ft_stlen(home)));
+	res = ft_strnew((len_aft + len_bef + ft_strlen(home)));
+	len_bef = 0;
+	while (*input != '~')
+		res[len_bef++] = *(input++);
+	while (*home)
+		res[len_bef++] = *(home++);
+	while (*(++input))
+		res[len_bef++] = *input;
 	return (res);
 }
 
