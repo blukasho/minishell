@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/30 18:40:24 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/11 23:40:03 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/18 18:08:24 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void				ft_striteri(char *s, void (*f) (unsigned int, char *));
 void				ft_striter(char *s, void (*f) (char *));
 void				ft_strclr(char *s);
 char				*ft_strdel(char **ap);
-void				ft_memdel(void **ap);
+void				*ft_memdel(void **ap);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memalloc(size_t size);
 void				*ft_memchr(const void *s, int c, size_t n);

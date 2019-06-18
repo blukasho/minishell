@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   manage_dollar.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
+/*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/04 10:18:50 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/18 18:08:24 by blukasho         ###   ########.fr       */
+/*   Created: 2019/06/18 18:07:11 by blukasho          #+#    #+#             */
+/*   Updated: 2019/06/18 18:11:20 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "minishell.h"
 
-void	*ft_memdel(void **ap)
+char		*manage_dollar(char *input, char **env)
 {
-	if (ap)
-	{
-		free(*ap);
-		*ap = NULL;
-	}
-	return (NULL);
+	if (input && env)
+	{}
+	return (ft_strdup(input));
 }

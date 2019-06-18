@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/17 14:15:15 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/18 15:25:23 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/18 18:04:55 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,15 @@
 char		*manage_expansions(char *input, char **env)
 {
 	char	*tilda;
+	char	*dollar;
 
 	tilda = manage_tilda(input, env);
-	if (tilda)
-		return (tilda);
+	if (tilda && (dollar = manage_dollar(tilda, env)))
+	{
+		ft_memdel((void **)&tilda);
+		return (dollar);
+	}
+	else if ((dollar = manage_dollar(input, env)))
+		return (dollar);
 	return (ft_strdup(input));
 }

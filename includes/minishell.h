@@ -6,13 +6,15 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 19:14:16 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/17 19:14:13 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/18 18:08:24 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 # define MINISHELL_START_MSG "$>"
+# define TILDA '~'
+# define DOLLAR '$'
 
 # include "../libft/includes/libft.h"
 # include "../libft/includes/ft_printf.h"
@@ -53,6 +55,7 @@ int			minishell_unsetenv(t_minishell *s);
 int			minishell_setenv(t_minishell *s);
 
 char		*read_line(void);
+char		*manage_dollar(char *input, char **env);
 char		*manage_tilda(char *input, char **env);
 char		*manage_expansions(char *input, char **env);
 char		**get_argv(char **env);
