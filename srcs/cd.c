@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 18:49:10 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/20 18:56:19 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/20 22:42:18 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,41 @@ static int	check_cd_errors(char *pathname)
 	return (0);
 }
 
+static char	**get_path(char **argv, char **env)
+{
+	char	*argument;
+	char	*env_value;
+
+	argument = *(argv + 1);
+	if (argument && ft_strcmp(argument, "-"))
+		return (argv + 1);
+	else if (argument)
+	{
+		if ((env_value = get_env_value(env, "OLDPWD=")))
+		{
+			ft_strdel(&(*argv));
+			*argv = ft_strdup(env_value);
+			return (argv);
+		}
+		else
+			return (argv + 1);
+	}
+	else if ((env_value = get_env_value(env, "HOME=")))
+	{
+		ft_strdel(&(*argv));
+		*argv = ft_strdup(env_value);
+		return (argv);
+	}
+	return (argv + 1);
+}
+
 int			cd(t_minishell *s)
 {
 	char	**argv;
 	char	*old_pwd;
 
 	argv = s->argv;
-	++argv;
+	argv = get_path(argv, s->env);
 	if (check_cd_errors(*argv))
 		return (0);
 	if (!(old_pwd = getcwd(NULL, 0)) && !put_error(*argv, "ERROR getcwd()"))
