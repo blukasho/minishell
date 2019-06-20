@@ -6,11 +6,12 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/11 18:28:29 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/20 14:41:47 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/20 17:38:09 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
 static int	check_format_error(char *env)
 {
 	char	*err = "use only uppercase letters and symbol '_' in KEY";

@@ -6,11 +6,21 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 13:07:07 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/17 19:14:13 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/20 18:39:39 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+static void	replace_tabs(char *str)
+{
+	while (str && *str)
+	{
+		if (!ft_isprint(*str))
+			*str = ' ';
+		++str;
+	}
+}
 
 char		**get_argv(char **env)
 {
@@ -19,6 +29,7 @@ char		**get_argv(char **env)
 	char	**argv;
 
 	tmp = read_line();
+	replace_tabs(tmp);
 	input = manage_expansions(tmp, env);
 	argv = ft_strsplit(input, ' ');
 	if (tmp)
