@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/11 18:28:29 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/18 17:16:13 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/20 14:41:47 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static int	check_format_error(char *env)
 			return (!put_error("setenv, ", err));
 		++env;
 	}
+	if (!*env || *env != '=' || !*(env + 1))
+		return (1);
 	return (0);
 }
 
