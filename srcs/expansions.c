@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/17 14:15:15 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/18 18:04:55 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/20 14:07:03 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ char		*manage_expansions(char *input, char **env)
 	tilda = manage_tilda(input, env);
 	if (tilda && (dollar = manage_dollar(tilda, env)))
 	{
+		ft_printf("->|%s|\n", dollar);
 		ft_memdel((void **)&tilda);
 		return (dollar);
 	}
