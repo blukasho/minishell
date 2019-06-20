@@ -53,22 +53,23 @@ set shortmess=aoO
 badd +5 srcs/manage_dollar.c
 badd +21 srcs/expansions.c
 badd +19 Makefile
-badd +45 includes/minishell.h
+badd +52 includes/minishell.h
 badd +89 libft/includes/libft.h
 badd +14 libft/srcs/ft_is_space.c
 badd +16 libft/srcs/ft_is_upper.c
 badd +12 srcs/setenv.c
 badd +1 srcs/add_string_to_arr.c
-badd +38 srcs/cd.c
-badd +15 srcs/get_argv.c
+badd +84 srcs/cd.c
+badd +38 srcs/get_argv.c
 badd +20 libft/srcs/ft_isprint.c
+badd +0 srcs/minishell.c
 argglobal
 silent! argdel *
 $argadd srcs/manage_dollar.c
 $argadd srcs/expansions.c
 $argadd Makefile
 set stal=2
-edit srcs/get_argv.c
+edit srcs/minishell.c
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -76,7 +77,7 @@ wincmd t
 set winminheight=1 winheight=1 winminwidth=1 winwidth=1
 argglobal
 2argu
-edit srcs/get_argv.c
+edit srcs/minishell.c
 setlocal noautoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -182,12 +183,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 21 - ((20 * winheight(0) + 35) / 70)
+let s:l = 42 - ((41 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-21
-normal! 014|
+42
+normal! 015|
 tabedit srcs/cd.c
 set splitbelow splitright
 wincmd _ | wincmd |

@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 12:50:34 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/18 17:06:13 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/20 19:07:32 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int				minishell(char **env)
 {
 	t_minishell	*s;
 
-	if (*env && !print_welcome())
+	if (!(s = NULL) && !print_welcome())
 		s = get_t_minishell(env);
-	while (!0 && *env)
+	while (!0)
 	{
 		print_start_msg();
 		s->argv = get_argv(s->env);
@@ -44,5 +44,6 @@ int				minishell(char **env)
 			clear_argv(&(s->env_paths));
 		s->env_paths = get_env_paths(s->env);
 	}
-	return (put_error("environment, ", "minishell dont work without **env"));
+//	return (put_error("environment, ", "minishell dont work without **env"));
+	return (0);
 }

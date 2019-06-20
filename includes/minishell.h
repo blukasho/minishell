@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 19:14:16 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/18 18:08:24 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/20 18:56:19 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int			env(t_minishell *s);
 int			minishell_unsetenv(t_minishell *s);
 int			minishell_setenv(t_minishell *s);
 
+char		*get_home(char **env);
 char		*read_line(void);
 char		*manage_dollar(char *input, char **env);
 char		*manage_tilda(char *input, char **env);

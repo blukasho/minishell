@@ -6,13 +6,13 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/17 19:05:41 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/18 17:52:07 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/20 18:56:19 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static char	*get_home(char **env)
+char		*get_home(char **env)
 {
 	if (env)
 		while (*env)
