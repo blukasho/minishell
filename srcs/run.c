@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 15:01:35 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/21 17:36:10 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/21 18:17:06 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int			run_minishell(t_minishell *s)
 	if ((pid = fork()) == -1)
 		put_error("ERROR", "fork");
 	if (pid == 0 && execve(*bin_paths, s->argv, s->env))
-		return (0);
+		exit(put_error("ERROR", "execve()"));
 	else
 		wait(&status);
 	return (1);
