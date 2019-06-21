@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 15:01:35 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/07 16:33:55 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/21 14:39:13 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@ int			run_minishell(t_minishell *s)
 	pid_t	pid;
 
 	bin_paths = s->bin_paths;
+	if (access(*bin_paths, X_OK) && !put_error("ERROR", "permission denied"))
+		return (1);
 	if ((pid = fork()) == -1)
 		put_error("ERROR", "fork");
 	if (pid == 0 && execve(*bin_paths, s->argv, s->env))
-		return (put_error("ERROR", "execve"));
+		return (0);
 	else
 		wait(&status);
 	return (1);
