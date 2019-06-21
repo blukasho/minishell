@@ -18,9 +18,9 @@ SRCS_PATH = srcs/
 
 OBJ = $(addprefix $(OBJ_PATH), $(SRCS:.c=.o))
 
-FLAGS = -Wall -Wextra -Werror -I includes
+FLAGS = -Wall -Wextra -Werror -I includes -g3
 
-LIBFT = libft.a
+LIBFT = ../libft/libft.a
 
 all: make_lib make_obj_path make_startup
 
@@ -29,7 +29,6 @@ make_startup:
 
 make_lib:
 	make -C ../libft
-	cp -rvf ../libft/libft.a .
 
 make_obj_path:
 	@mkdir -p $(OBJ_PATH)
@@ -42,13 +41,14 @@ $(OBJ_PATH)%.o:$(SRCS_PATH)%.c
 	gcc $(FLAGS) -c $< -o $@
 
 clean:
+	make clean -C ../libft
 	rm -rf $(OBJ_PATH)
 	rm -rf a.out
 	rm -rf objs
 	rm -rf a.out.dSYM
 
 fclean: clean
-	rm -rf $(LIBFT)
+	make fclean -C ../libft
 
 re: fclean all
 
