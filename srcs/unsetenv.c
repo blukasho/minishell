@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/11 15:40:18 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/21 09:11:48 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/21 10:11:02 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ static char	**realloc_env(char **env, char *name_env)
 		++tmp_env;
 	tmp_env = (char **)malloc(++len * sizeof(char *));
 	res = tmp_env;
+	*res = NULL;
+	if (!ft_strcmp(name_env, "--all=") && !ft_str_del_arr(env))
+		return (tmp_env);
 	len = 0;
 	while (env[len])
 		if (ft_strncmp(name_env, env[len], ft_strlen(name_env)))
