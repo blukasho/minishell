@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/02 13:55:52 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/07 12:36:10 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/21 08:57:06 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int				clear_t_minishell(t_minishell *s)
 	return (0);
 }
 
-int			clear_argv(char ***argv)
+int				clear_argv(char ***argv)
 {
-	char	**tmp;
+	char		**tmp;
 
 	tmp = *argv;
 	while (tmp && *tmp)

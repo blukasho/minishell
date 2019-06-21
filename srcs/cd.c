@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 18:49:10 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/20 22:42:18 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/21 09:05:36 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int	set_old_pwd(t_minishell *s, char *old_pwd)
 	return (0);
 }
 
-static int	set_pwd(t_minishell *s)
+static	int	set_pwd(t_minishell *s)
 {
 	char	**env;
 	char	*tmp;
@@ -46,7 +46,7 @@ static int	set_pwd(t_minishell *s)
 
 	env = s->env;
 	if (!(tmp = getcwd(NULL, 0)))
-			return (put_error("ERROR in set_pwd()", "getcwd()"));
+		return (put_error("ERROR in set_pwd()", "getcwd()"));
 	while (*env)
 	{
 		if (!ft_strncmp("PWD=", *env, 4) && !ft_strdel(&(*env)))

@@ -6,13 +6,13 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 15:15:06 by blukasho          #+#    #+#             */
-/*   Updated: 2019/05/31 16:16:03 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/21 08:56:34 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static char	*str_realloc(char *str, char c, int	len)
+static char	*str_realloc(char *str, char c, int len)
 {
 	char	*buf;
 

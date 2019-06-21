@@ -52,26 +52,30 @@ endif
 set shortmess=aoO
 badd +5 srcs/manage_dollar.c
 badd +21 srcs/expansions.c
-badd +19 Makefile
-badd +45 includes/minishell.h
+badd +17 Makefile
+badd +53 includes/minishell.h
 badd +89 libft/includes/libft.h
 badd +14 libft/srcs/ft_is_space.c
 badd +16 libft/srcs/ft_is_upper.c
-badd +12 srcs/setenv.c
-badd +30 srcs/add_string_to_arr.c
-badd +50 srcs/cd.c
+badd +41 srcs/setenv.c
+badd +38 srcs/add_string_to_arr.c
+badd +34 srcs/cd.c
 badd +38 srcs/get_argv.c
 badd +20 libft/srcs/ft_isprint.c
-badd +42 srcs/minishell.c
+badd +1 srcs/minishell.c
 badd +25 libft/srcs/ft_strdup.c
-badd +0 srcs/get_env_value.c
+badd +1 srcs/get_env_value.c
+badd +31 srcs/clear.c
+badd +31 srcs/print.c
+badd +21 srcs/read_line.c
+badd +0 srcs/unsetenv.c
 argglobal
 silent! argdel *
 $argadd srcs/manage_dollar.c
 $argadd srcs/expansions.c
 $argadd Makefile
 set stal=2
-edit srcs/minishell.c
+edit srcs/unsetenv.c
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -79,6 +83,125 @@ wincmd t
 set winminheight=1 winheight=1 winminwidth=1 winwidth=1
 argglobal
 2argu
+edit srcs/unsetenv.c
+setlocal noautoindent
+setlocal backupcopy=
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal cindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal noexpandtab
+if &filetype != 'c'
+setlocal filetype=c
+endif
+setlocal fixendofline
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal formatprg=
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=0
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal lispwords=
+setlocal nolist
+setlocal makeencoding=
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=bin,hex
+set number
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=ccomplete#Complete
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal signcolumn=auto
+setlocal smartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'c'
+setlocal syntax=c
+endif
+setlocal tabstop=4
+setlocal tagcase=
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal noundofile
+setlocal undolevels=-123456
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 55 - ((54 * winheight(0) + 35) / 70)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+55
+normal! 038|
+tabedit srcs/minishell.c
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
+argglobal
 edit srcs/minishell.c
 setlocal noautoindent
 setlocal backupcopy=
@@ -185,12 +308,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 35) / 70)
+let s:l = 14 - ((13 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 05|
+14
+normal! 0
 tabedit srcs/cd.c
 set splitbelow splitright
 wincmd _ | wincmd |

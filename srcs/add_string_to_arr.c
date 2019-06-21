@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/11 13:45:34 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/11 13:46:55 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/21 08:56:34 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char			**add_string_to_arr(char **arr, char *path)
 	{
 		while (*arr && ++len)
 			++arr;
-		if ((arr = (char **)malloc(len *sizeof(char *))))
+		if ((arr = (char **)malloc(len * sizeof(char *))))
 		{
 			len = -1;
 			while (tmp[++len])
@@ -35,7 +35,7 @@ char			**add_string_to_arr(char **arr, char *path)
 	else if ((arr = (char **)malloc(len * sizeof(char *))))
 	{
 		*arr = ft_strdup(path);
-		*(arr + 1)= NULL;
+		*(arr + 1) = NULL;
 		return (arr);
 	}
 	return (NULL);

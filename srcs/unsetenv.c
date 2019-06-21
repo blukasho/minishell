@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/11 15:40:18 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/11 18:26:05 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/21 09:11:48 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,17 @@ int			minishell_unsetenv(t_minishell *s)
 {
 	char	**argv;
 	char	**env;
+	char	*var_name;
 
 	env = s->env;
 	argv = s->argv;
 	if (!*(++argv))
 		return (put_error("ERROR unsetenv,", "need env variable name"));
-	s->env = realloc_env(env, *argv);
+	var_name = ft_strjoin(*argv, "=");
+	if (var_name)
+	{
+		s->env = realloc_env(env, var_name);
+		ft_memdel((void **)&var_name);
+	}
 	return (0);
 }

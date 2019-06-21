@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/13 09:52:23 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/17 08:13:06 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/21 08:56:34 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int			print_start_msg(void)
 int			print_welcome(void)
 {
 	int		i;
-	
+
 	i = 83;
 	while (--i)
 		ft_printf("#");
