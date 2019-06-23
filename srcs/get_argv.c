@@ -6,13 +6,13 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 13:07:07 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/23 12:47:32 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/23 15:36:47 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static void	replace_tabs(char *str)
+static void	replace_not_print_symbols(char *str)
 {
 	while (str && *str)
 	{
@@ -32,20 +32,39 @@ static void skip_quotes(char *str)
 		ft_memmove(tmp, tmp + 1, ft_strlen(tmp));
 }
 
-char		**get_argv(char **env)
+static char	***manage_semi_colon(char *str)
+{
+	char	***argvs;
+	char	**sem_col;
+	int		len;
+
+	len = 0;
+	sem_col = ft_strsplit(str, ';');
+	argvs = (char ***)malloc((ft_strlenarr(sem_col) + 1) * sizeof(char **));
+	while (sem_col[len])
+	{
+		argvs[len] = ft_strsplit(sem_col[len], ' ');
+		++len;
+	}
+	argvs[len] = NULL;
+	ft_str_del_arr(sem_col);
+	return (argvs);
+}
+
+char		***get_argv(char **env)
 {
 	char	*tmp;
 	char	*input;
-	char	**argv;
+	char	***argvs;
 
 	tmp = read_line();
-	replace_tabs(tmp);
+	replace_not_print_symbols(tmp);
 	skip_quotes(tmp);
 	input = manage_expansions(tmp, env);
-	argv = ft_strsplit(input, ' ');
+	argvs = manage_semi_colon(input);
 	if (tmp)
 		ft_memdel((void **)&tmp);
 	if (input)
 		ft_memdel((void **)&input);
-	return (argv);
+	return (argvs);
 }

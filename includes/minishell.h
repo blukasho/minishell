@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 19:14:16 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/21 14:46:56 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/23 15:36:47 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char			*manage_dollar(char *input, char **env);
 char			*manage_tilda(char *input, char **env);
 char			*get_env_value(char **env, char *var);
 char			*manage_expansions(char *input, char **env);
-char			**get_argv(char **env);
+char			***get_argv(char **env);
 char			**get_env_paths(char **env);
 char			**get_bin_paths(t_minishell *s);
 char			**get_dup_string_arr(char **arr);

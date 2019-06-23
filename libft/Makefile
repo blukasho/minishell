@@ -6,7 +6,7 @@
 #    By: blukasho <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/31 12:56:17 by blukasho          #+#    #+#              #
-#*   Updated: 2019/06/23 12:25:29 by blukasho         ###   ########.fr       *#
+#*   Updated: 2019/06/23 15:12:46 by blukasho         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRCS = ft_bzero.c ft_memcpy.c ft_memset.c ft_memccpy.c ft_memmove.c \
 	   get_next_line.c ft_strlen_chr.c ft_putstr_arr.c ft_str_del_arr.c\
 	   ft_int_arr_mult.c ft_int_arr_subtr.c ft_strchrreplace.c\
 	   ft_sum_two_digits.c ft_pos_exp_of_digit.c ft_neg_exp_of_digit.c\
-	   ft_int_arr_comparing.c ft_print_int_arr.c\
+	   ft_int_arr_comparing.c ft_print_int_arr.c ft_strlenarr.c\
 	   t_sum_two_digits_del.c check_period.c ft_sum.c ft_get_double_bits.c\
 	   ft_get_double_exp.c ft_get_double_man.c\
 	   ft_print_double_bits.c ft_len_of_digit.c\
