@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 15:15:06 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/21 08:56:34 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/24 19:46:50 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ char		*read_line(void)
 	len = 0;
 	while ((ret = read(0, &buf, 1)) && buf != '\n')
 		line = str_realloc(line, buf, len++);
+	if (!ret && !ft_strdel(&line))
+		return (ft_strdup("exit"));
 	return (line);
 }

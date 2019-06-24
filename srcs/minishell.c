@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 12:50:34 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/24 18:40:28 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/24 19:38:40 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,6 @@ int				minishell(char **env)
 	while (!0 && !(tmp = NULL) && !print_start_msg())
 	{
 		argvs = get_argv(s->env);
-		if (!*argvs)
-			ft_printf("\n");
 		tmp = argvs;
 		while (*argvs)
 		{
