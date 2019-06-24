@@ -14,7 +14,7 @@ SRCS = minishell.c print.c get_argv.c read_line.c\
 	   get_t_minishell.c check_builtins.c get_env_paths.c clear.c exit.c\
 	   error.c get_bin_paths.c is_way.c is_dir.c is_file.c run.c echo.c cd.c\
 	   env.c add_string_to_arr.c unsetenv.c setenv.c expansions.c manage_tilda.c\
-	   manage_dollar.c get_env_value.c
+	   manage_dollar.c get_env_value.c signal.c
 
 SRCS_DIR = srcs/
 

@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 13:07:07 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/23 15:36:47 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/24 18:42:15 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	replace_not_print_symbols(char *str)
 	}
 }
 
-static void skip_quotes(char *str)
+static void	skip_quotes(char *str)
 {
 	char	*tmp;
 

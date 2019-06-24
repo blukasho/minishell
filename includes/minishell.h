@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 19:14:16 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/23 15:36:47 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/24 17:59:57 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct	s_minishell
 }				t_minishell;
 
 t_minishell		*get_t_minishell(char **env);
+void			execsignalhandler(int sig);
+void			setsignalhandler(int sig);
 int				minishell(char **env);
 int				run_minishell(t_minishell *s);
 int				print_welcome(void);

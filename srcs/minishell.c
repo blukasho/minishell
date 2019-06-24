@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 12:50:34 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/23 18:34:03 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/24 18:40:28 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@ static int		clear_argvs(char ***argvs)
 	return (0);
 }
 
+static int		local_clear(t_minishell *s)
+{
+	clear_argv(&(s->bin_paths));
+	if (!clear_argv(&(s->argv)) && s->env_paths)
+		clear_argv(&(s->env_paths));
+	return (0);
+}
+
 int				minishell(char **env)
 {
 	t_minishell	*s;
@@ -40,20 +48,20 @@ int				minishell(char **env)
 
 	if (!(s = NULL) && !print_welcome())
 		s = get_t_minishell(env);
-	while (!0 && !(tmp = NULL))
+	signal(SIGINT, setsignalhandler);
+	while (!0 && !(tmp = NULL) && !print_start_msg())
 	{
-		print_start_msg();
 		argvs = get_argv(s->env);
+		if (!*argvs)
+			ft_printf("\n");
 		tmp = argvs;
 		while (*argvs)
 		{
 			s->argv = *(argvs++);
-			if (*(s->argv) && !construction_minishell(s) && !clear_t_minishell(s))
+			if (*(s->argv) && !construction_minishell(s) &&
+				!clear_t_minishell(s))
 				return (clear_argvs(tmp));
-			clear_argv(&(s->argv));
-			clear_argv(&(s->bin_paths));
-			if (s->env_paths)
-				clear_argv(&(s->env_paths));
+			local_clear(s);
 			s->env_paths = get_env_paths(s->env);
 		}
 		clear_argvs(tmp);

@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_execve_0.c                                    :+:      :+:    :+:   */
+/*   signal.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/29 22:13:40 by blukasho          #+#    #+#             */
-/*   Updated: 2019/05/29 22:37:35 by blukasho         ###   ########.fr       */
+/*   Created: 2019/06/24 15:37:45 by blukasho          #+#    #+#             */
+/*   Updated: 2019/06/24 18:40:56 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test.h"
+#include "minishell.h"
 
-int			main(int argc, char **argv, char **env)
+void	setsignalhandler(int sig)
 {
-	if (argc && argv && env)
+	if (sig == SIGINT)
 	{
-		while (*argv)
-			ft_printf("%s\n", *(argv++));
-		ft_printf("<<<--->>>\n");
-		while (*env)
-			ft_printf("%s\n", *(env++));
+		ft_printf("\n");
+		print_start_msg();
+		signal(SIGINT, setsignalhandler);
+	}
+}
+
+void	execsignalhandler(int sig)
+{
+	if (sig == SIGINT)
+	{
+		ft_printf("\n");
+		signal(SIGINT, setsignalhandler);
 	}
 }
