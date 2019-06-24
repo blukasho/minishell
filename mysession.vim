@@ -57,12 +57,12 @@ badd +32 srcs/signal.c
 badd +14 srcs/run.c
 badd +22 srcs/print.c
 badd +36 srcs/clear.c
-badd +25 srcs/get_argv.c
+badd +32 srcs/get_argv.c
 badd +17 srcs/echo.c
 badd +21 srcs/expansions.c
-badd +0 srcs/manage_dollar.c
-badd +0 srcs/read_line.c
-badd +0 srcs/main.c
+badd +1 srcs/manage_dollar.c
+badd +1 srcs/read_line.c
+badd +18 srcs/main.c
 argglobal
 silent! argdel *
 $argadd srcs/minishell.c
@@ -185,7 +185,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 53 - ((52 * winheight(0) + 35) / 70)
+let s:l = 53 - ((31 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -299,14 +299,13 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 48 - ((47 * winheight(0) + 35) / 70)
+let s:l = 55 - ((54 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-48
+55
 normal! 0
 wincmd w
-2wincmd w
 exe 'vert 1resize ' . ((&columns * 97 + 97) / 195)
 exe 'vert 2resize ' . ((&columns * 97 + 97) / 195)
 tabedit srcs/manage_dollar.c
@@ -421,11 +420,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 46 - ((24 * winheight(0) + 35) / 70)
+let s:l = 84 - ((60 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-46
+84
 normal! 0
 tabedit srcs/get_argv.c
 set splitbelow splitright
@@ -1150,7 +1149,7 @@ normal! 047|
 wincmd w
 exe 'vert 1resize ' . ((&columns * 97 + 97) / 195)
 exe 'vert 2resize ' . ((&columns * 97 + 97) / 195)
-tabnext 1
+tabnext 2
 set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
