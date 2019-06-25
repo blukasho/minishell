@@ -6,18 +6,11 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/18 18:07:11 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/24 20:33:45 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/25 17:37:04 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-static int	is_var_name_symbol(char c)
-{
-	if (ft_is_upper(c) || c == '_')
-		return (1);
-	return (0);
-}
 
 static char	*srch_var_name(char *input)
 {
@@ -36,25 +29,6 @@ static char	*srch_var_name(char *input)
 		if (*input)
 			++input;
 	}
-	return (NULL);
-}
-
-static char	*srch_var_env_name(char *name, char **env)
-{
-	int		name_len;
-	char	*tmp;
-
-	tmp = name;
-	name_len = 0;
-	while (is_var_name_symbol(*(tmp++)))
-		++name_len;
-	if (env && *env && name_len)
-		while (*env)
-		{
-			if (!ft_strncmp(name, *env, name_len))
-				return (*env + name_len + 1);
-			++env;
-		}
 	return (NULL);
 }
 
@@ -77,15 +51,43 @@ static char	*get_new_input(char *input, char *var_name, char *var_env)
 	return (res);
 }
 
+static char	*skip_var_name(char *input)
+{
+	while (input && *input && !is_var_name_symbol(*input))
+		++input;
+	while (input && *input && is_var_name_symbol(*input))
+		++input;
+	return (input);
+}
+
 char		*manage_dollar(char *input, char **env)
 {
 	char	*var_name;
 	char	*var_env;
+	char	*tmp_input;
+	char	*new_input;
 
-	if (env && (var_name = srch_var_name(input)) && *var_name)
+	tmp_input = NULL;
+	new_input = NULL;
+	while (*input && (var_name = srch_var_name(input)) && *var_name)
 	{
-		if ((var_env = srch_var_env_name(var_name, env)) && *var_env)
-			return (get_new_input(input, var_name, var_env));
+		if (env && (var_name = srch_var_name(input)) && *var_name)
+		{
+			if ((var_env = srch_var_env_name(var_name, env)) && *var_env)
+			{
+				if (new_input && (tmp_input = new_input))
+				{
+					new_input = get_new_input(new_input, var_name, var_env);
+					if (tmp_input)
+						ft_strdel(&tmp_input);
+				}
+				else
+					new_input = get_new_input(input, var_name, var_env);
+			}
+			else
+				input = skip_var_name(input);
+		}
+		input = skip_var_name(input);
 	}
-	return (ft_strdup(input));
+	return ((new_input ? new_input : ft_strdup(tmp_input)));
 }

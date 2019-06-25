@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 19:14:16 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/24 17:59:57 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/25 12:26:10 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ t_minishell		*get_t_minishell(char **env);
 void			execsignalhandler(int sig);
 void			setsignalhandler(int sig);
 int				minishell(char **env);
+int				is_var_name_symbol(char c);
 int				run_minishell(t_minishell *s);
 int				print_welcome(void);
 int				print_start_msg(void);
@@ -54,6 +55,7 @@ int				minishell_unsetenv(t_minishell *s);
 int				minishell_setenv(t_minishell *s);
 char			*get_home(char **env);
 char			*read_line(void);
+char			*srch_var_env_name(char *name, char **env);
 char			*manage_dollar(char *input, char **env);
 char			*manage_tilda(char *input, char **env);
 char			*get_env_value(char **env, char *var);

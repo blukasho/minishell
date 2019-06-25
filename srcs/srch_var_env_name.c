@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   expansions.c                                       :+:      :+:    :+:   */
+/*   srch_var_env_name.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/17 14:15:15 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/25 17:30:18 by blukasho         ###   ########.fr       */
+/*   Created: 2019/06/25 12:25:12 by blukasho          #+#    #+#             */
+/*   Updated: 2019/06/25 12:26:08 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-char		*manage_expansions(char *input, char **env)
+char	*srch_var_env_name(char *name, char **env)
 {
-	char	*tilda;
-	char	*dollar;
+	int		name_len;
+	char	*tmp;
 
-	tilda = manage_tilda(input, env);
-	if (tilda && (dollar = manage_dollar(ft_strdup(tilda), env)))
-	{
-		ft_memdel((void **)&tilda);
-		return (dollar);
-	}
-	else if ((dollar = manage_dollar(input, env)))
-		return (dollar);
-	return (ft_strdup(input));
+	tmp = name;
+	name_len = 0;
+	while (is_var_name_symbol(*(tmp++)))
+		++name_len;
+	if (env && *env && name_len)
+		while (*env)
+		{
+			if (!ft_strncmp(name, *env, name_len))
+				return (*env + name_len + 1);
+			++env;
+		}
+	return (NULL);
 }
