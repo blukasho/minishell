@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/18 18:07:11 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/27 14:12:37 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/27 17:11:03 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,14 @@ static char	*add_env_val_to_input(char *input, char **env)
 
 	var_name = get_var_name(input);
 	env_value = get_env_value(env, var_name);
+	ft_strdel(&var_name);
 	result = ft_strnew((ft_strlen(input) + ft_strlen(env_value)));
 	tmp = result;
 	while (*input && *input != DOLLAR)
 		*(tmp++) = *(input++);
-	while (*input && (is_var_name_symbol(*input) || *input == DOLLAR))
+	if (*input && *input == DOLLAR)
+		++input;
+	while (*input && is_var_name_symbol(*input))
 		++input;
 	while (*env_value)
 		*(tmp++) = *(env_value++);
