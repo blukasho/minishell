@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 19:14:16 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/25 18:08:54 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/27 09:28:38 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct	s_minishell
 t_minishell		*get_t_minishell(char **env);
 void			execsignalhandler(int sig);
 void			setsignalhandler(int sig);
+int				skip_var_name(char *input);
 int				minishell(char **env);
 int				is_var_name_symbol(char c);
 int				run_minishell(t_minishell *s);

@@ -6,7 +6,7 @@
 #*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2019/05/28 17:41:01 by blukasho          #+#    #+#             *#
-#*   Updated: 2019/06/13 09:54:12 by blukasho         ###   ########.fr       *#
+#*   Updated: 2019/06/27 09:28:38 by blukasho         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -15,7 +15,7 @@ SRCS = minishell.c print.c get_argv.c read_line.c\
 	   error.c get_bin_paths.c is_way.c is_dir.c is_file.c run.c echo.c cd.c\
 	   env.c add_string_to_arr.c unsetenv.c setenv.c expansions.c manage_tilda.c\
 	   manage_dollar.c get_env_value.c signal.c is_var_name_symbol.c\
-	   srch_var_env_name.c
+	   srch_var_env_name.c skip_var_name.c
 
 SRCS_DIR = srcs/
 
