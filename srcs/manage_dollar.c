@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/18 18:07:11 by blukasho          #+#    #+#             */
-/*   Updated: 2019/06/27 12:46:32 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/06/27 14:12:37 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ static int	has_env_var(char *input, char **env)
 		++len_var_name;
 	while (*env)
 	{
-		if (!ft_strncmp(input, *env, len_var_name) && *(*env + 4) == '=')
+		if (!ft_strncmp(input, *env, len_var_name) &&
+			*(*env + len_var_name) == '=')
 			return (1);
 		++env;
 	}
@@ -49,12 +50,22 @@ static char	*add_env_val_to_input(char *input, char **env)
 {
 	char	*env_value;
 	char	*var_name;
+	char	*result;
+	char	*tmp;
 
-	env_value = NULL;
 	var_name = get_var_name(input);
-	if (env_value && var_name && input && env)
-	{}
-	return (var_name);
+	env_value = get_env_value(env, var_name);
+	result = ft_strnew((ft_strlen(input) + ft_strlen(env_value)));
+	tmp = result;
+	while (*input && *input != DOLLAR)
+		*(tmp++) = *(input++);
+	while (*input && (is_var_name_symbol(*input) || *input == DOLLAR))
+		++input;
+	while (*env_value)
+		*(tmp++) = *(env_value++);
+	while (*input)
+		*(tmp++) = *(input++);
+	return (result);
 }
 
 char		*manage_dollar(char *input, char **env)
@@ -69,18 +80,15 @@ char		*manage_dollar(char *input, char **env)
 	{
 		while (ft_strchr(new_input, DOLLAR))
 		{
-			if (has_env_var(ft_strchr(new_input, DOLLAR) + 1, env))//
+			if (has_env_var(ft_strchr(new_input, DOLLAR) + 1, env))
 			{
-				if (tmp)
-				{}
 				tmp = new_input;
 				new_input = add_env_val_to_input(new_input, env);
-//				ft_strdel(&tmp);
+				ft_strdel(&tmp);
 			}
 			else
 				skip_var_name(new_input);
 		}
-
 	}
 	else
 		while (*new_input && ft_strchr(new_input, DOLLAR))
